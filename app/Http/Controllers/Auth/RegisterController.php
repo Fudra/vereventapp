@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Events\Auth\UserRequestedActivationEmail;
 use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -22,17 +23,26 @@ class RegisterController extends Controller
         $this->middleware('guest');
     }
 
-    /**
-     * The user has been registered.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  mixed  $user
-     * @return mixed
-     */
-    protected function registered(Request $request, $user)
-    {
-        return $user;
-    }
+	/**
+	 * The user has been registered.
+	 *
+	 * @param  \Illuminate\Http\Request  $request
+	 * @param  mixed  $user
+	 * @return mixed
+	 */
+	protected function registered(Request $request, $user)
+	{
+
+		event(new UserRequestedActivationEmail($user));
+
+//	    $this->guard()->logout();
+
+		return response()->json([
+			'root' => [
+				'Registered. Please check your email to activate your account.'
+			]
+		], 200);
+	}
 
     /**
      * Get a validator for an incoming registration request.
@@ -61,6 +71,8 @@ class RegisterController extends Controller
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
+            'active'           => false,
+            'activation_token' => str_random( 100 ),
         ]);
     }
 }

@@ -11,9 +11,13 @@
 |
 */
 
+// static routes
 Route::get('oauth/{driver}', 'Auth\OAuthController@redirectToProvider')->name('oauth');
 Route::get('oauth/{driver}/callback', 'Auth\OAuthController@handleProviderCallback')->name('oauth.callback');
 
+Route::get('auth/activate', 'Auth\\ActivationController@activate')->name('auth.active');
+
+// dynamic routes
 Route::get('{path}', function () {
     return view('index');
 })->where('path', '(.*)');

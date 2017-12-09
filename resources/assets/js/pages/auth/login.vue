@@ -78,7 +78,7 @@ export default {
 
       // Save the token.
       this.$store.dispatch('auth/saveToken', {
-        token: data.token,
+        token: data.meta.token,
         remember: this.remember
       })
 

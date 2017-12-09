@@ -28,7 +28,7 @@ class ResetPasswordController extends Controller
      */
     protected function sendResetResponse($response)
     {
-        return ['status' => trans($response)];
+	    return response()->json(['status' => trans($response)]);
     }
 
     /**
@@ -42,4 +42,25 @@ class ResetPasswordController extends Controller
     {
         return response()->json(['email' => trans($response)], 400);
     }
+
+	/**
+	 * Reset the given user's password.
+	 *
+	 * @param  \Illuminate\Contracts\Auth\CanResetPassword $user
+	 * @param  string $password
+	 *
+	 * @return \Illuminate\Http\JsonResponse
+	 */
+	protected function resetPassword($user, $password) {
+		$user->password = bcrypt( $password );
+		$user->setRememberToken( str_random( 60 ) );
+		$user->save();
+
+//		if($user->active) {
+		event( new PasswordReset( $user ) );
+
+		return response()->json( [ 'status' => trans( 'password.reset' ) ], 200 );
+//			$this->guard()->login($user);
+//		}
+	}
 }

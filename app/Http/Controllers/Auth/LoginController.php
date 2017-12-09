@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
+use Illuminate\Validation\Rule;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
@@ -40,11 +41,42 @@ class LoginController extends Controller
     }
 
     /**
-     * Send the response after the user was authenticated.
+     * Validate the user login request.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return void
      */
+	protected function validateLogin(Request $request)
+	{
+		$this->validate($request, [
+			$this->username() => [
+				'required', 'string',
+				Rule::exists('users')->where(function($query) {
+					$query->where('active', true);
+				})
+			],
+			'password' => 'required|string',
+		], $this->validationErrors());
+	}
+
+	/**
+	 * Get the validation errors for login.
+	 *
+	 * @return array
+	 */
+	protected function validationErrors(  ) {
+		return  [
+			$this->username() . '.exists' => 'No account found, or you need to activate your account.'
+		];
+	}
+
+	/**
+	 * Send the response after the user was authenticated.
+	 *
+	 * @param  \Illuminate\Http\Request $request
+	 *
+	 * @return array
+	 */
     protected function sendLoginResponse(Request $request)
     {
         $this->clearLoginAttempts($request);
@@ -53,18 +85,21 @@ class LoginController extends Controller
         $expiration = $this->guard()->getPayload()->get('exp');
 
         return [
-            'token' => $token,
-            'token_type' => 'bearer',
-            'expires_in' => $expiration - time(),
+            'meta' => [
+	            'token' => $token,
+	            'token_type' => 'bearer',
+	            'expires_in' => $expiration - time(),
+            ]
         ];
     }
 
-    /**
-     * Log the user out of the application.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+	/**
+	 * Log the user out of the application.
+	 *
+	 * @param  \Illuminate\Http\Request $request
+	 *
+	 * @return void
+	 */
     public function logout(Request $request)
     {
         $this->guard()->logout();

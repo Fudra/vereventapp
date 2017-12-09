@@ -85,17 +85,17 @@ export default {
       // Register the user.
       const { data } = await this.form.post('/api/register')
 
-      // Log in the user.
-      const { data: { token }} = await this.form.post('/api/login')
+       //Log in the user.
+		//const { data: { token }} = await this.form.post('/api/login')
 
-      // Save the token.
-      this.$store.dispatch('saveToken', { token })
+		// Save the token.
+		//this.$store.dispatch('saveToken', { token })
 
-      // Update the user.
-      await this.$store.dispatch('auth/updateUser', { user: data })
+		// Update the user.
+		//await this.$store.dispatch('auth/updateUser', { user: data })
 
-      // Redirect home.
-      this.$router.push({ name: 'home' })
+		// Redirect home.
+		//this.$router.push({ name: 'home' })
     }
   },
 
