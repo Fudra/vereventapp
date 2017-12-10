@@ -1,11 +1,12 @@
 <template>
-  <label class="custom-control custom-checkbox">
+  <label class="checkbox" :for="name">
     <input
       type="checkbox"
       :name="name"
+      :id="name"
       @click="handleClick"
       :checked="internalValue"
-      class="custom-control-input"
+      class=""
     >
     <span class="custom-control-indicator"></span>
     <span class="custom-control-description">
