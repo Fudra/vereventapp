@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import { HasError, AlertWarning, AlertSuccess, AlertErrors, AlertError } from './global/alert'
+import { HasError, AlertWarning, AlertSuccess, AlertErrors, AlertError } from './layout/alert'
 
 Vue.component(HasError.name, HasError)
 Vue.component(AlertError.name, AlertError)

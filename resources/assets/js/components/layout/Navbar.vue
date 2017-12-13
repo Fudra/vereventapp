@@ -5,7 +5,7 @@
 				<router-link :to="{ name: user ? 'home' : 'welcome' }" class="navbar-item">
 					{{ appName }}
 				</router-link>
-				<button class="navbar-burger burger">
+				<button class="button navbar-burger">
 					<span></span>
 					<span></span>
 					<span></span>
@@ -16,7 +16,7 @@
 					<!-- Authenticated -->
 					<div class="navbar-item has-dropdown is-hoverable" v-if="user">
 						<a href="#" class="navbar-link">
-							<img :src="user.photo_url" class="rounded-circle profile-photo mr-1">
+							<img :src="user.photo_url" class="image is-24x24 is-profile">
 							{{ user.name }}
 						</a>
 						<div class="navbar-dropdown is-boxed">
@@ -81,7 +81,8 @@
 		box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
 	}
 
-	.profile-photo {
-		height: 2rem;
+	.is-profile {
+		margin-right: 10px;
+		border-radius: 50%;
 	}
 </style>

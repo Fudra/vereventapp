@@ -29,7 +29,7 @@
 						<!-- Remember me -->
 						<div class="field">
 							<p class="control">
-								<checkbox v-model="remember" :name="remember">{{ $t('remember_me') }}</checkbox>
+								<checkbox v-model="remember" name="remember">{{ $t('remember_me') }}</checkbox>
 							</p>
 						</div>
 
@@ -91,7 +91,7 @@
 		},
 
 		computed: {
-			githubAuth: () => window.config.githubAuth,
+
 		},
 	};
 </script>

@@ -1,36 +1,41 @@
 <template>
-  <card :title="$t('your_info')">
-    <form @submit.prevent="update" @keydown="form.onKeydown($event)">
+
+  <div>
+    <h1 class="title">{{$t('your_info')}}</h1>
+
+    <form @submit.prevent="update" @keydown="form.onKeydown($event)" class="form">
       <alert-success :form="form" :message="$t('info_updated')"></alert-success>
 
       <!-- Name -->
-      <div class="form-group row">
-        <label class="col-md-3 col-form-label text-md-right">{{ $t('name') }}</label>
-        <div class="col-md-7">
-          <input v-model="form.name" type="text" name="name" class="form-control"
-            :class="{ 'is-invalid': form.errors.has('name') }">
+      <div class="field">
+        <label class="label" for="name">{{ $t('name') }}</label>
+        <p class="control">
+          <input v-model="form.name" type="text" name="name" class="input" id="name"
+                 :class="{ 'is-danger': form.errors.has('email') }">
           <has-error :form="form" field="name"></has-error>
-        </div>
+        </p>
       </div>
 
       <!-- Email -->
-      <div class="form-group row">
-        <label class="col-md-3 col-form-label text-md-right">{{ $t('email') }}</label>
-        <div class="col-md-7">
-          <input v-model="form.email" type="email" name="email" class="form-control"
-            :class="{ 'is-invalid': form.errors.has('email') }">
+      <div class="field">
+        <label class="label" for="email">{{ $t('email') }}</label>
+        <p class="control">
+          <input v-model="form.email" type="email" name="email" class="input" id="email"
+                 :class="{ 'is-danger': form.errors.has('email') }">
           <has-error :form="form" field="email"></has-error>
-        </div>
+        </p>
       </div>
 
-      <!-- Submit Button -->
-      <div class="form-group row">
-        <div class="col-md-9 ml-md-auto">
-          <v-button type="success" :loading="form.busy">{{ $t('update') }}</v-button>
-        </div>
+      <!-- submit Button -->
+      <div class="field">
+        <p class="control">
+          <button class="button is-primary" :class="{'is-loading': form.busy }">
+            {{ $t('update') }}
+          </button>
+        </p>
       </div>
     </form>
-  </card>
+  </div>
 </template>
 
 <script>
