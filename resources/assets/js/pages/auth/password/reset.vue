@@ -1,57 +1,67 @@
 <template>
-  <div class="row">
-    <div class="col-lg-8 m-auto">
-      <card :title="$t('reset_password')">
-        <form @submit.prevent="reset" @keydown="form.onKeydown($event)">
-          <alert-success :form="form" :message="status"></alert-success>
+  <section class="section">
+    <div class="container is-fluid">
+      <div class="columns">
+        <div class="column is-half is-offset-one-quarter">
+          <h1 class="title">{{$t('reset_password')}}</h1>
+          <form @submit.prevent="reset" @keydown="form.onKeydown($event)" class="form">
+            <alert-success :form="form" :message="status"></alert-success>
 
-          <!-- Email -->
-          <div class="form-group row">
-            <label class="col-md-3 col-form-label text-md-right">{{ $t('email') }}</label>
-            <div class="col-md-7">
-              <input v-model="form.email" type="email" name="email" class="form-control"
-                :class="{ 'is-invalid': form.errors.has('email') }">
-              <has-error :form="form" field="email"></has-error>
+            <!-- Email -->
+            <div class="field">
+              <label class="label" for="email">{{ $t('email') }}</label>
+              <p class="control">
+                <input v-model="form.email" type="email" name="email" class="input" id="email"
+                       :class="{ 'is-danger': form.errors.has('email') }">
+                <has-error :form="form" field="email"></has-error>
+              </p>
             </div>
-          </div>
 
-          <!-- Password -->
-          <div class="form-group row">
-            <label class="col-md-3 col-form-label text-md-right">{{ $t('password') }}</label>
-            <div class="col-md-7">
-              <input v-model="form.password" type="password" name="password" class="form-control"
-                :class="{ 'is-invalid': form.errors.has('password') }">
-              <has-error :form="form" field="password"></has-error>
+            <!-- Password -->
+            <div class="field">
+              <label class="label" for="password">{{ $t('password') }}</label>
+              <p class="control">
+                <input v-model="form.password" type="password" name="password" class="input"
+                       id="password"
+                       :class="{ 'is-danger': form.errors.has('password') }">
+                <has-error :form="form" field="password"></has-error>
+              </p>
             </div>
-          </div>
 
-          <!-- Password Confirmation -->
-          <div class="form-group row">
-            <label class="col-md-3 col-form-label text-md-right">{{ $t('confirm_password') }}</label>
-            <div class="col-md-7">
-              <input v-model="form.password_confirmation" type="password" name="password_confirmation" class="form-control"
-                :class="{ 'is-invalid': form.errors.has('password_confirmation') }">
-              <has-error :form="form" field="password_confirmation"></has-error>
-            </div>
-          </div>
 
-          <!-- Submit Button -->
-          <div class="form-group row">
-            <div class="col-md-9 ml-md-auto">
-              <v-button :loading="form.busy">{{ $t('reset_password') }}</v-button>
+            <!-- Password Confirmation -->
+            <div class="field">
+              <label class="label" for="password_confirmation">{{ $t('confirm_password') }}</label>
+              <p class="control">
+                <input v-model="form.password_confirmation" type="password" name="password_confirmation" class="input"
+                       id="password_confirmation"
+                       :class="{ 'is-danger': form.errors.has('password_confirmation') }">
+                <has-error :form="form" field="password"></has-error>
+              </p>
             </div>
-          </div>
-        </form>
-      </card>
+
+
+            <div class="field">
+              <p class="control">
+                <button class="button is-primary" :class="{'is-loading': form.busy }">
+                  {{ $t('reset_password') }}
+                </button>
+              </p>
+            </div>
+          </form>
+        </div>
+      </div>
     </div>
-  </div>
+  </section>
 </template>
 
 <script>
 import Form from 'vform'
+import AlertSuccess from '../../../components/global/alert/Success';
 
 export default {
-  metaInfo () {
+	components: { AlertSuccess },
+	metaInfo () {
     return { title: this.$t('reset_password') }
   },
 

@@ -5,13 +5,14 @@
         <div class="column is-half is-offset-one-quarter">
           <h1 class="title">{{$t('register')}}</h1>
           <form @submit.prevent="register" @keydown="form.onKeydown($event)" class="form">
+
             <!-- Name -->
             <div class="field">
               <label class="label" for="name">{{ $t('name') }}</label>
               <p class="control">
                 <input v-model="form.name" type="text" name="name" class="input" id="name"
                        :class="{ 'is-danger': form.errors.has('email') }">
-                <!--<has-error :form="form" field="name"></has-error>-->
+                <has-error :form="form" field="name"></has-error>
               </p>
             </div>
 
@@ -21,8 +22,7 @@
               <p class="control">
                 <input v-model="form.email" type="email" name="email" class="input" id="email"
                        :class="{ 'is-danger': form.errors.has('email') }">
-                <!-- @todo -->
-                <!--<has-error :form="form" field="email"></has-error>-->
+                <has-error :form="form" field="email"></has-error>
               </p>
             </div>
 
@@ -33,8 +33,7 @@
                 <input v-model="form.password" type="password" name="password" class="input"
                        id="password"
                        :class="{ 'is-danger': form.errors.has('password') }">
-                <!-- @todo -->
-                <!--<has-error :form="form" field="password"></has-error>-->
+                <has-error :form="form" field="password"></has-error>
               </p>
             </div>
 
@@ -45,8 +44,7 @@
                 <input v-model="form.confirm_password" type="password" name="confirm_password" class="input"
                        id="confirm_password"
                        :class="{ 'is-danger': form.errors.has('confirm_password') }">
-                <!-- @todo -->
-                <!--<has-error :form="form" field="password"></has-error>-->
+                <has-error :form="form" field="password"></has-error>
               </p>
             </div>
 

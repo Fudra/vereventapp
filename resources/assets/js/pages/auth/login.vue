@@ -11,8 +11,7 @@
 							<p class="control">
 								<input v-model="form.email" type="email" name="email" class="input" id="email"
 									   :class="{ 'is-danger': form.errors.has('email') }">
-								<!-- @todo -->
-								<!--<has-error :form="form" field="email"></has-error>-->
+								<has-error :form="form" field="email"></has-error>
 							</p>
 						</div>
 
@@ -23,8 +22,7 @@
 								<input v-model="form.password" type="password" name="password" class="input"
 									   id="password"
 									   :class="{ 'is-danger': form.errors.has('password') }">
-								<!-- @todo -->
-								<!--<has-error :form="form" field="password"></has-error>-->
+								<has-error :form="form" field="password"></has-error>
 							</p>
 						</div>
 
