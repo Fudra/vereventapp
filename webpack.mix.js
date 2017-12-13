@@ -23,7 +23,7 @@ if (mix.inProduction()) {
     'vue-i18n',
     'vue-meta',
     'js-cookie',
-    'bootstrap',
+    'bulma',
     'vue-router',
     'sweetalert2',
     'vuex-router-sync',

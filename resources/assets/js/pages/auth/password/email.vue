@@ -1,30 +1,35 @@
 <template>
-  <div class="row">
-    <div class="col-lg-8 m-auto">
-      <card :title="$t('reset_password')">
-        <form @submit.prevent="send" @keydown="form.onKeydown($event)">
-          <alert-success :form="form" :message="status"></alert-success>
+  <section class="section">
+    <div class="container is-fluid">
+      <div class="columns">
+        <div class="column is-half is-offset-one-quarter">
+          <h1 class="title">{{$t('reset_password')}}</h1>
+          <form @submit.prevent="send" @keydown="form.onKeydown($event)" class="form">
+            <alert-success :form="form" :message="status"></alert-success>
 
-          <!-- Email -->
-          <div class="form-group row">
-            <label class="col-md-3 col-form-label text-md-right">{{ $t('email') }}</label>
-            <div class="col-md-7">
-              <input v-model="form.email" type="email" name="email" class="form-control"
-                :class="{ 'is-invalid': form.errors.has('email') }">
-              <has-error :form="form" field="email"></has-error>
+            <!-- Email -->
+            <div class="field">
+              <label class="label" for="email">{{ $t('email') }}</label>
+              <p class="control">
+                <input v-model="form.email" type="email" name="email" class="input" id="email"
+                       :class="{ 'is-danger': form.errors.has('email') }">
+                <has-error :form="form" field="email"></has-error>
+              </p>
             </div>
-          </div>
 
-          <!-- Submit Button -->
-          <div class="form-group row">
-            <div class="col-md-9 ml-md-auto">
-              <v-button :loading="form.busy">{{ $t('send_password_reset_link') }}</v-button>
+            <div class="field">
+              <p class="control">
+                <button class="button is-primary" :class="{'is-loading': form.busy }">
+                  {{ $t('send_password_reset_link') }}
+                </button>
+              </p>
             </div>
-          </div>
-        </form>
-      </card>
+
+          </form>
+        </div>
+      </div>
     </div>
-  </div>
+  </section>
 </template>
 
 <script>
