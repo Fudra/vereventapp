@@ -57,7 +57,7 @@
 
 <script>
 import Form from 'vform'
-import AlertSuccess from '../../../components/global/alert/Success';
+import AlertSuccess from '../../../components/layout/alert/Success';
 
 export default {
 	components: { AlertSuccess },

@@ -6,12 +6,10 @@ Vue.component('fa', FontAwesomeIcon)
 
 // import { } from '@fortawesome/fontawesome-free-regular'
 
-import {
-  faUser, faLock, faSignOutAlt, faCog
-} from '@fortawesome/fontawesome-free-solid'
+import solid from '@fortawesome/fontawesome-free-solid'
 
-import { faGithub } from '@fortawesome/fontawesome-free-brands'
+// import { faGithub } from '@fortawesome/fontawesome-free-brands'
 
 fontawesome.library.add(
-  faUser, faLock, faSignOutAlt, faCog, faGithub
+  solid
 )

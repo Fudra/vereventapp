@@ -1,65 +1,40 @@
 <template>
-  <div>
-    <div class="top-right links">
-      <template v-if="authenticated">
-        <router-link :to="{ name: 'home' }">
-          {{ $t('home') }}
-        </router-link>
-      </template>
-      <template v-else>
-        <router-link :to="{ name: 'login' }">
-          {{ $t('login') }}
-        </router-link>
-        <router-link :to="{ name: 'register' }">
-          {{ $t('register') }}
-        </router-link>
-      </template>
-    </div>
+	<section class="hero is-primary is-medium is-bold">
+		<navbar></navbar>
 
-    <div class="text-center">
-      <div class="title mb-4">
-        {{ title }}
-      </div>
+		<div class="hero-body">
+			<div class="container has-text-centered">
+				<h1 class="title">
+					{{ title }}
+				</h1>
+				<h2 class="subtitle">
+					{{ subtitle }}
+				</h2>
+			</div>
+		</div>
 
-      <div class="links">
-        <a href="https://laravel.com/docs">Documentation</a>
-        <a href="https://laracasts.com">Laracasts</a>
-        <a href="https://laravel-news.com">News</a>
-        <a href="https://forge.laravel.com">Forge</a>
-        <a href="https://github.com/laravel/laravel">GitHub</a>
-      </div>
-    </div>
-  </div>
+	</section>
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
 
-export default {
-  layout: 'default',
+	import Navbar from '~/components/layout/Navbar';
 
-  metaInfo () {
-    return { title: this.$t('home') }
-  },
+	export default {
+		layout: 'default',
 
-  computed: mapGetters({
-    authenticated: 'auth/check'
-  }),
+		metaInfo () {
+			return { title: this.$t('home') };
+		},
 
-  data: () => ({
-    title: window.config.appName
-  })
-}
+		data: () => ({
+			title: window.config.appName,
+			subtitle: "Your place to manage your events.."
+		}),
+
+		components: {
+			Navbar,
+		},
+	};
 </script>
 
-<style scoped>
-.top-right {
-  position: absolute;
-  right: 10px;
-  top: 18px;
-}
-
-.title {
-  font-size: 85px;
-}
-</style>

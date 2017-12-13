@@ -101,7 +101,6 @@ export default {
   },
 
   computed: {
-    githubAuth: () => window.config.githubAuth
   }
 }
 </script>
