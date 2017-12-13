@@ -1,66 +1,69 @@
 <template>
-  <div class="row">
-    <div class="col-lg-8 m-auto">
-      <card :title="$t('register')">
-        <form @submit.prevent="register" @keydown="form.onKeydown($event)">
-          <!-- Name -->
-          <div class="form-group row">
-            <label class="col-md-3 col-form-label text-md-right">{{ $t('name') }}</label>
-            <div class="col-md-7">
-              <input v-model="form.name" type="text" name="name" class="form-control"
-                :class="{ 'is-invalid': form.errors.has('name') }">
-              <has-error :form="form" field="name"></has-error>
+  <section class="section">
+    <div class="container is-fluid">
+      <div class="columns">
+        <div class="column is-half is-offset-one-quarter">
+          <h1 class="title">{{$t('register')}}</h1>
+          <form @submit.prevent="register" @keydown="form.onKeydown($event)" class="form">
+            <!-- Name -->
+            <div class="field">
+              <label class="label" for="name">{{ $t('name') }}</label>
+              <p class="control">
+                <input v-model="form.name" type="text" name="name" class="input" id="name"
+                       :class="{ 'is-danger': form.errors.has('email') }">
+                <!--<has-error :form="form" field="name"></has-error>-->
+              </p>
             </div>
-          </div>
 
-          <!-- Email -->
-          <div class="form-group row">
-            <label class="col-md-3 col-form-label text-md-right">{{ $t('email') }}</label>
-            <div class="col-md-7">
-              <input v-model="form.email" type="email" name="email" class="form-control"
-                :class="{ 'is-invalid': form.errors.has('email') }">
-              <has-error :form="form" field="email"></has-error>
+            <!-- Email -->
+            <div class="field">
+              <label class="label" for="email">{{ $t('email') }}</label>
+              <p class="control">
+                <input v-model="form.email" type="email" name="email" class="input" id="email"
+                       :class="{ 'is-danger': form.errors.has('email') }">
+                <!-- @todo -->
+                <!--<has-error :form="form" field="email"></has-error>-->
+              </p>
             </div>
-          </div>
 
-          <!-- Password -->
-          <div class="form-group row">
-            <label class="col-md-3 col-form-label text-md-right">{{ $t('password') }}</label>
-            <div class="col-md-7">
-              <input v-model="form.password" type="password" name="password" class="form-control"
-                :class="{ 'is-invalid': form.errors.has('password') }">
-              <has-error :form="form" field="password"></has-error>
+            <!-- Password -->
+            <div class="field">
+              <label class="label" for="password">{{ $t('password') }}</label>
+              <p class="control">
+                <input v-model="form.password" type="password" name="password" class="input"
+                       id="password"
+                       :class="{ 'is-danger': form.errors.has('password') }">
+                <!-- @todo -->
+                <!--<has-error :form="form" field="password"></has-error>-->
+              </p>
             </div>
-          </div>
 
-          <!-- Password Confirmation -->
-          <div class="form-group row">
-            <label class="col-md-3 col-form-label text-md-right">{{ $t('confirm_password') }}</label>
-            <div class="col-md-7">
-              <input v-model="form.password_confirmation" type="password" name="password_confirmation" class="form-control"
-                :class="{ 'is-invalid': form.errors.has('password_confirmation') }">
-              <has-error :form="form" field="password_confirmation"></has-error>
+            <!-- Password confirmed-->
+            <div class="field">
+              <label class="label" for="confirm_password">{{ $t('confirm_password') }}</label>
+              <p class="control">
+                <input v-model="form.confirm_password" type="password" name="confirm_password" class="input"
+                       id="confirm_password"
+                       :class="{ 'is-danger': form.errors.has('confirm_password') }">
+                <!-- @todo -->
+                <!--<has-error :form="form" field="password"></has-error>-->
+              </p>
             </div>
-          </div>
 
-          <div class="form-group row">
-            <div class="col-md-7 offset-md-3 d-flex">
-              <!-- Submit Button -->
-              <v-button :loading="form.busy">
-                {{ $t('register') }}
-              </v-button>
 
-              <!-- GitHub Register Button -->
-              <a v-if="githubAuth" href="/oauth/github" class="btn btn-dark ml-auto">
-                {{ $t('register_with') }}
-                <fa :icon="['fab', 'github']"/>
-              </a>
+            <div class="field is-grouped">
+              <p class="control">
+                <button class="button is-primary" :class="{'is-loading': form.busy }">
+                  {{ $t('register') }}
+                </button>
+              </p>
             </div>
-          </div>
-        </form>
-      </card>
+
+          </form>
+        </div>
+      </div>
     </div>
-  </div>
+  </section>
 </template>
 
 <script>

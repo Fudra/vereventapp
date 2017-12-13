@@ -37,12 +37,11 @@
 
 						<div class="field is-grouped">
 							<p class="control">
-								<button class="button is-primary" :class="{'is-loading': form.busy }">{{ $t('login')
-									}}
+								<button class="button is-primary" :class="{'is-loading': form.busy }">
+									{{ $t('login') }}
 								</button>
 							</p>
 							<p>
-
 								<router-link :to="{ name: 'password.request' }">
 									{{ $t('forgot_password') }}
 								</router-link>
