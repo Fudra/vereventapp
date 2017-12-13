@@ -1,5 +1,5 @@
 <template>
-	<div class="notification is-warning" v-if="form.errors.any()" >
+	<div class="notification is-warning" >
 		<button class="delete" v-if="dismissible" @click="dismiss" type="button"></button>
 
 		<div v-if="message" v-html="message"></div>
