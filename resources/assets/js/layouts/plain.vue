@@ -1,7 +1,6 @@
 <template>
-	<div class="app-plain-layout">
+	<div class="plain-layout">
 		<navbar></navbar>
-		<account-stats></account-stats>
 
 		<child/>
 	</div>
@@ -12,7 +11,7 @@
 	import AccountStats from '~/components/account/Stats';
 
 	export default {
-		name: 'app-plain-layout',
+		name: 'plain-layout',
 
 		components: {
 			Navbar,

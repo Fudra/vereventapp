@@ -2,27 +2,22 @@
 	<section class="section">
 		<div class="container">
 			<div class="columns">
-				<div class="column is-one-quarter">
-					<aside class="menu">
-						<p class="menu-label">{{ $t('settings') }}</p>
-						<ul class="menu-list">
-							<li v-for="tab in tabs">
-								<router-link :to="{ name: tab.route }" class="nav-link" active-class="active">
+
+				<div class="column is-half">
+					<!-- tabs -->
+					<div class="tabs is-centered">
+						<ul>
+							<router-link :to="{ name: tab.route }" class="nav-link" active-class="is-active"
+										 v-for="(tab, index) in tabs" tag="li" :key="index">
+								<a href="#">
 									<fa :icon="tab.icon" fixed-width/>
 									{{ tab.name }}
-								</router-link>
-							</li>
-						</ul>
-						<p class="menu-label">General</p>
-						<ul class="menu-list">
-							<router-link to="home" class="nav-link">
-								<fa icon="home" fixed-width/>
-								Home
+								</a>
 							</router-link>
 						</ul>
-					</aside>
-				</div>
-				<div class="column is-half">
+					</div>
+					<!-- // End -->
+
 					<transition name="fade" mode="out-in">
 						<router-view></router-view>
 					</transition>
@@ -35,7 +30,7 @@
 <script>
 	export default {
 		loading: false,
-		layout: 'app-plain',
+		layout: 'account',
 
 		data () {
 			return {

@@ -1,106 +1,108 @@
 <template>
-  <section class="section">
-    <div class="container is-fluid">
-      <div class="columns">
-        <div class="column is-half is-offset-one-quarter">
-          <h1 class="title">{{$t('register')}}</h1>
-          <form @submit.prevent="register" @keydown="form.onKeydown($event)" class="form">
+	<section class="section">
+		<div class="container is-fluid">
+			<div class="columns">
+				<div class="column is-half is-offset-one-quarter">
+					<h1 class="title">{{$t('register')}}</h1>
+					<form @submit.prevent="register" @keydown="form.onKeydown($event)" class="form">
 
-            <!-- Name -->
-            <div class="field">
-              <label class="label" for="name">{{ $t('name') }}</label>
-              <p class="control">
-                <input v-model="form.name" type="text" name="name" class="input" id="name"
-                       :class="{ 'is-danger': form.errors.has('email') }">
-                <has-error :form="form" field="name"></has-error>
-              </p>
-            </div>
+						<!-- Name -->
+						<div class="field">
+							<label class="label" for="name">{{ $t('name') }}</label>
+							<p class="control">
+								<input v-model="form.name" type="text" name="name" class="input" id="name"
+									   :class="{ 'is-danger': form.errors.has('email') }">
+								<has-error :form="form" field="name"></has-error>
+							</p>
+						</div>
 
-            <!-- Email -->
-            <div class="field">
-              <label class="label" for="email">{{ $t('email') }}</label>
-              <p class="control">
-                <input v-model="form.email" type="email" name="email" class="input" id="email"
-                       :class="{ 'is-danger': form.errors.has('email') }">
-                <has-error :form="form" field="email"></has-error>
-              </p>
-            </div>
+						<!-- Email -->
+						<div class="field">
+							<label class="label" for="email">{{ $t('email') }}</label>
+							<p class="control">
+								<input v-model="form.email" type="email" name="email" class="input" id="email"
+									   :class="{ 'is-danger': form.errors.has('email') }">
+								<has-error :form="form" field="email"></has-error>
+							</p>
+						</div>
 
-            <!-- Password -->
-            <div class="field">
-              <label class="label" for="password">{{ $t('password') }}</label>
-              <p class="control">
-                <input v-model="form.password" type="password" name="password" class="input"
-                       id="password"
-                       :class="{ 'is-danger': form.errors.has('password') }">
-                <has-error :form="form" field="password"></has-error>
-              </p>
-            </div>
+						<!-- Password -->
+						<div class="field">
+							<label class="label" for="password">{{ $t('password') }}</label>
+							<p class="control">
+								<input v-model="form.password" type="password" name="password" class="input"
+									   id="password"
+									   :class="{ 'is-danger': form.errors.has('password') }">
+								<has-error :form="form" field="password"></has-error>
+							</p>
+						</div>
 
-            <!-- Password confirmed-->
-            <div class="field">
-              <label class="label" for="confirm_password">{{ $t('confirm_password') }}</label>
-              <p class="control">
-                <input v-model="form.confirm_password" type="password" name="confirm_password" class="input"
-                       id="confirm_password"
-                       :class="{ 'is-danger': form.errors.has('confirm_password') }">
-                <has-error :form="form" field="password"></has-error>
-              </p>
-            </div>
+						<!-- Password confirmed-->
+						<div class="field">
+							<label class="label" for="confirm_password">{{ $t('confirm_password') }}</label>
+							<p class="control">
+								<input v-model="form.confirm_password" type="password" name="confirm_password"
+									   class="input"
+									   id="confirm_password"
+									   :class="{ 'is-danger': form.errors.has('confirm_password') }">
+								<has-error :form="form" field="password"></has-error>
+							</p>
+						</div>
 
 
-            <div class="field is-grouped">
-              <p class="control">
-                <button class="button is-primary" :class="{'is-loading': form.busy }">
-                  {{ $t('register') }}
-                </button>
-              </p>
-            </div>
+						<div class="field is-grouped">
+							<p class="control">
+								<button class="button is-primary" :class="{'is-loading': form.busy }">
+									{{ $t('register') }}
+								</button>
+							</p>
+						</div>
 
-          </form>
-        </div>
-      </div>
-    </div>
-  </section>
+					</form>
+				</div>
+			</div>
+		</div>
+	</section>
 </template>
 
 <script>
-import Form from 'vform'
+	import Form from 'vform';
 
-export default {
-  metaInfo () {
-    return { title: this.$t('register') }
-  },
+	export default {
+		layout: 'plain',
 
-  data: () => ({
-    form: new Form({
-      name: '',
-      email: '',
-      password: '',
-      password_confirmation: ''
-    })
-  }),
+		metaInfo () {
+			return { title: this.$t('register') };
+		},
 
-  methods: {
-    async register () {
-      // Register the user.
-      const { data } = await this.form.post('/api/register')
+		data: () => ({
+			form: new Form({
+							   name: '',
+							   email: '',
+							   password: '',
+							   password_confirmation: '',
+						   }),
+		}),
 
-       //Log in the user.
-		//const { data: { token }} = await this.form.post('/api/login')
+		methods: {
+			async register () {
+				// Register the user.
+				const { data } = await this.form.post('/api/register');
 
-		// Save the token.
-		//this.$store.dispatch('saveToken', { token })
+				//Log in the user.
+				//const { data: { token }} = await this.form.post('/api/login')
 
-		// Update the user.
-		//await this.$store.dispatch('auth/updateUser', { user: data })
+				// Save the token.
+				//this.$store.dispatch('saveToken', { token })
 
-		// Redirect home.
-		//this.$router.push({ name: 'home' })
-    }
-  },
+				// Update the user.
+				//await this.$store.dispatch('auth/updateUser', { user: data })
 
-  computed: {
-  }
-}
+				// Redirect home.
+				//this.$router.push({ name: 'home' })
+			},
+		},
+
+		computed: {},
+	};
 </script>
