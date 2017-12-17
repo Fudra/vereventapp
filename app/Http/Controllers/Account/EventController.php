@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Account;
 
-use App\Event;
+use App\Models\Event;
 use App\Http\Requests\Events\StoreEventRequest;
 use App\Http\Requests\Events\UpdateEventRequest;
 use App\Transformers\EventTransformer;

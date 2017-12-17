@@ -34,7 +34,6 @@ Route::group(['middleware' => 'auth:api', 'prefix' => '/account'], function () {
 	 */
     Route::group(['prefix' => '/events'], function () {
 	    Route::get('/', 'Account\\EventController@index')->name('account.event.index');
-	    Route::get('/{event}', 'Account\\EventController@show')->name('account.event.show');
 	    Route::get('/create', 'Account\\EventController@create')->name('account.event.create.start');
     	Route::get('/{event}/create', 'Account\\EventController@create')->name('account.event.create');
 	    Route::post('/{event}', 'Account\\EventController@store')->name('account.event.store');
