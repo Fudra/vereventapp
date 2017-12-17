@@ -111,7 +111,6 @@ class EventController extends Controller {
 			'title',
 			'description',
 			'description_short',
-			'price',
 			'live',
 			'private'
 		]));
@@ -145,7 +144,6 @@ class EventController extends Controller {
 			'title'             => 'Untitled',
 			'description'       => 'None',
 			'description_short' => 'None',
-			'price'             => 0,
 			'finished'          => false,
 			'live'              => false,
 			'private'           => true,

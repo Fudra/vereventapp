@@ -20,7 +20,6 @@ class CreateEventsTable extends Migration
 	        $table->string('title');
 	        $table->string('description_short', 300)->nullable();
 	        $table->text('description');
-	        $table->decimal('price', 6, 2);
 	        $table->boolean('finished')->default(false);
 			$table->boolean('live')->default(false);
 			$table->boolean('private')->default(false);

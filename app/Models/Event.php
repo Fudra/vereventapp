@@ -13,7 +13,6 @@ class Event extends Model {
 		'title',
 		'description_short',
 		'description',
-		'price',
 		'finished',
 		'live',
 		'private',
@@ -28,14 +27,6 @@ class Event extends Model {
 		return $this->belongsTo( User::class );
 	}
 
-	/**
-	 * Determinate if the event is free
-	 *
-	 * @return bool
-	 */
-	public function isFree() {
-		return $this->price == 0;
-	}
 
 	/**
 	 * Get all finished Events

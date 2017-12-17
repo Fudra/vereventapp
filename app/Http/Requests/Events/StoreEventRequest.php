@@ -24,7 +24,6 @@ class StoreEventRequest extends FormRequest {
 			'title'             => 'required|max:255',
 			'description_short' => 'required|max:300',
 			'description'       => 'required|max:5000',
-			'price'             => 'required|numeric',
 		];
 	}
 }
