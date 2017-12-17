@@ -6,6 +6,9 @@ use App\Event;
 use League\Fractal\TransformerAbstract;
 
 class EventTransformer extends TransformerAbstract {
+
+	protected $availableIncludes = ['user'];
+
 	public function transform( Event $event ) {
 		return [
 			'identifier'        => $event->identifier,
@@ -16,5 +19,9 @@ class EventTransformer extends TransformerAbstract {
 			'live'              => boolval($event->live),
 			'private'           => boolval($event->private),
 		];
+	}
+
+	public function includeUser( Event $event ) {
+		return $this->item($event->user, new UserTransformer());
 	}
 }
