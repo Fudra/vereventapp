@@ -20,8 +20,15 @@ Route::group(['middleware' => 'auth:api'], function () {
         return $request->user();
     });
 
-    Route::patch('settings/profile', 'Settings\ProfileController@update');
-    Route::patch('settings/password', 'Settings\PasswordController@update');
+    Route::group(['prefix' => '/events'], function () {
+    	Route::get('/create', 'Events\\EventController@create')->name('account.event.create.start');
+    	Route::get('/{event}/create', 'Events\\EventController@create')->name('account.event.create');
+    });
+
+    Route::group(['prefix' => '/settings'], function () {
+	    Route::patch('/profile', 'Settings\ProfileController@update');
+	    Route::patch('/password', 'Settings\PasswordController@update');
+    });
 });
 
 Route::group(['middleware' => 'guest:api'], function () {
