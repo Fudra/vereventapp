@@ -17,7 +17,7 @@ class EventController extends Controller {
 	 */
 	public function index() {
 
-		$events = auth()->user()->events()->latest()->finished()->get();
+		$events = auth()->user()->events()->latest()->isFinished()->get();
 
 		return fractal()
 			->collection( $events )
@@ -57,7 +57,7 @@ class EventController extends Controller {
 	 * @param Event $event
 	 * @param StoreEventRequest $request
 	 *
-	 * @return void
+	 * @return \Illuminate\Http\Response
 	 * @throws \Illuminate\Auth\Access\AuthorizationException
 	 */
 	public function store( Event $event, StoreEventRequest $request ) {
@@ -98,10 +98,11 @@ class EventController extends Controller {
 	/**
 	 * Update the specified resource in storage.
 	 *
-	 * @param  \Illuminate\Http\Request $request
-	 * @param  int $id
+	 * @param Event $event
+	 * @param UpdateEventRequest $request
 	 *
 	 * @return \Illuminate\Http\Response
+	 * @throws \Illuminate\Auth\Access\AuthorizationException
 	 */
 	public function update( Event $event, UpdateEventRequest $request ) {
 		$this->authorize( 'touch', $event);
@@ -121,12 +122,17 @@ class EventController extends Controller {
 	/**
 	 * Remove the specified resource from storage.
 	 *
-	 * @param  int $id
+	 * @param Event $event
 	 *
 	 * @return \Illuminate\Http\Response
+	 * @throws \Exception
+	 * @throws \Illuminate\Auth\Access\AuthorizationException
 	 */
-	public function destroy( $id ) {
-		//
+	public function destroy( Event $event ) {
+		$this->authorize( 'touch', $event);
+		$event->delete();
+
+		return response()->json( [ 'status' => 'event.create.deleted' ], 200 );
 	}
 
 	/**
