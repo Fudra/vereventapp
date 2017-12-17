@@ -41,6 +41,15 @@ Route::group(['middleware' => 'auth:api', 'prefix' => '/account'], function () {
 	    Route::get('/{event}/edit', 'Account\\EventController@edit')->name('account.event.edit');
 	    Route::get('/{event}/edit', 'Account\\EventController@edit')->name('account.event.edit');
 	    Route::delete('/{event}', 'Account\\EventController@destroy')->name('account.event.destroy');
+
+	    /**
+	     *
+	     */
+	    Route::post('/{event}/ticket', 'Account\\TicketController@store')->name('account.event.ticket.store');
+//	    Route::group(['prefix' => ''], function () {
+//		    Route::get('/create', 'Account\\TicketController@create')->name('account.event.ticket.create');
+//
+//	    });
     });
 
 	/**

@@ -27,7 +27,6 @@ class Event extends Model {
 		return $this->belongsTo( User::class );
 	}
 
-
 	/**
 	 * Get all finished Events
 	 *
@@ -76,6 +75,13 @@ class Event extends Model {
 	 */
 	public function getRouteKeyName() {
 		return 'identifier';
+	}
+
+	/**
+	 * @return \Illuminate\Database\Eloquent\Relations\HasMany
+	 */
+	public function tickets() {
+		return $this->hasMany(Ticket::class);
 	}
 
 	/**

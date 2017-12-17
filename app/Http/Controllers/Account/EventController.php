@@ -21,6 +21,7 @@ class EventController extends Controller {
 
 		return fractal()
 			->collection( $events )
+			->parseIncludes(['tickets'])
 			->transformWith( new EventTransformer() )
 			->toArray();
 	}
@@ -67,7 +68,6 @@ class EventController extends Controller {
 			'title',
 			'description',
 			'description_short',
-			'price',
 			'live',
 			'private'
 		]));
