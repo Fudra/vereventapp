@@ -57,6 +57,8 @@
 	import Form from 'vform';
 
 	export default {
+		layout: 'plain',
+
 		metaInfo () {
 			return { title: this.$t('login') };
 		},

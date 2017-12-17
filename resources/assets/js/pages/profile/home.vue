@@ -7,6 +7,8 @@
 
 <script>
 	export default {
+		layout: 'account',
+
 		metaInfo () {
 			return { title: this.$t('home') };
 		},

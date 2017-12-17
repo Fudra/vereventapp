@@ -1,12 +1,13 @@
 <template>
-	<div class="app-layout">
+	<div class="app-plain-layout">
 		<navbar></navbar>
 		<account-stats></account-stats>
+
 		<section class="section">
 			<div class="container">
 				<div class="columns">
 					<div class="column is-one-quarter">
-						<!--@todo side-nav-->
+						<account-navigation></account-navigation>
 					</div>
 					<div class="column">
 						<child/>
@@ -20,11 +21,14 @@
 <script>
 	import Navbar from '~/components/layout/Navbar';
 	import AccountStats from '~/components/account/Stats';
+	import AccountNavigation from '~/components/account/Navigation';
+
 
 	export default {
-		name: 'app-layout',
+		name: 'account-layout',
 
 		components: {
+			AccountNavigation,
 			Navbar,
 			AccountStats,
 		},

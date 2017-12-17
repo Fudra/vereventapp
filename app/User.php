@@ -99,4 +99,8 @@ class User extends Authenticatable implements JWTSubject
 	public function scopeByEmail( Builder $builder, $email ) {
 		return $builder->where('email', $email);
 	}
+
+	public function events() {
+		return $this->hasMany(Event::class);
+	}
 }

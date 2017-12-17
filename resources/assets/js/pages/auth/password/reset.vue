@@ -60,6 +60,8 @@ import Form from 'vform'
 import AlertSuccess from '../../../components/layout/alert/Success';
 
 export default {
+	layout: 'plain',
+
 	components: { AlertSuccess },
 	metaInfo () {
     return { title: this.$t('reset_password') }
