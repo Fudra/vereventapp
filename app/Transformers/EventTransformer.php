@@ -18,8 +18,10 @@ class EventTransformer extends TransformerAbstract {
 			'title'             => $event->title,
 			'description'       => $event->description,
 			'description_short' => $event->description_short,
-			'live'              => boolval( $event->live ),
-			'private'           => boolval( $event->private ),
+			'meta' => [
+				'live'    => boolval( $event->live ),
+				'private' => boolval( $event->private ),
+			],
 		];
 	}
 

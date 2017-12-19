@@ -1,7 +1,5 @@
 /* eslint-disable */
 import * as types from './mutation-types';
-import Cookies from 'js-cookie';
-
 
 export default {
 	[types.SAVE_TOKEN] (state, { token, remember }) {
@@ -15,6 +13,7 @@ export default {
 
 	[types.FETCH_USER_FAILURE] (state) {
 		state.token = null;
+
 		Cookies.remove('token');
 	},
 

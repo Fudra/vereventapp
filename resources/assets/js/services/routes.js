@@ -7,3 +7,6 @@ export const PASSWORD_EMAIL = '/api/password/email';
 
 // account
 export const USER = '/api/account/user';
+
+// events
+export const EVENTS = '/api/events';
