@@ -44,8 +44,8 @@ class Ticket extends Model
 		return 'identifier';
 	}
 
-	public function event(  ) {
-		return $this->belongsTo(Ticket::class);
+	public function event( ) {
+		return $this->belongsTo(Event::class);
 	}
 
 	/**

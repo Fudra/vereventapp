@@ -115,7 +115,7 @@ class EventController extends Controller {
 			'private'
 		]));
 
-		return response()->json( [ 'status' => 'event.create.successfully' ], 200 );
+		return response()->json( [ 'status' => 'event.update.successfully' ], 200 );
 	}
 
 	/**

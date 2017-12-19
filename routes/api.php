@@ -37,19 +37,19 @@ Route::group(['middleware' => 'auth:api', 'prefix' => '/account'], function () {
 	    Route::get('/create', 'Account\\EventController@create')->name('account.event.create.start');
     	Route::get('/{event}/create', 'Account\\EventController@create')->name('account.event.create');
 	    Route::post('/{event}', 'Account\\EventController@store')->name('account.event.store');
+	    Route::get('/{event}/edit', 'Account\\EventController@edit')->name('account.event.edit');
 	    Route::patch('/{event}', 'Account\\EventController@update')->name('account.event.update');
-	    Route::get('/{event}/edit', 'Account\\EventController@edit')->name('account.event.edit');
-	    Route::get('/{event}/edit', 'Account\\EventController@edit')->name('account.event.edit');
 	    Route::delete('/{event}', 'Account\\EventController@destroy')->name('account.event.destroy');
 
 	    /**
 	     *
 	     */
-	    Route::post('/{event}/ticket', 'Account\\TicketController@store')->name('account.event.ticket.store');
-//	    Route::group(['prefix' => ''], function () {
-//		    Route::get('/create', 'Account\\TicketController@create')->name('account.event.ticket.create');
-//
-//	    });
+	    Route::group(['prefix' => '/{event}/ticket'], function () {
+		    Route::post('/', 'Account\\TicketController@store')->name('account.event.ticket.store');
+		    Route::get('/{ticket}/edit', 'Account\\TicketController@edit')->name('account.event.ticket.edit');
+		    Route::patch('/{ticket}', 'Account\\TicketController@update')->name('account.event.ticket.update');
+		    Route::delete('/{ticket}', 'Account\\TicketController@destroy')->name('account.event.ticket.destroy');
+	    });
     });
 
 	/**
@@ -78,6 +78,7 @@ Route::group(['middleware' => 'guest:api'], function () {
 Route::group(['prefix' => '/events'], function () {
 	Route::get('/', 'Events\\EventController@index')->name('event.index');
 	Route::get('/{event}', 'Events\\EventController@show')->name('event.show');
+	Route::get('/{event}/tickets', 'Events\\TicketController@show')->name('event.ticket.show');
 });
 
 
