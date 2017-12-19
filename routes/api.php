@@ -25,9 +25,7 @@ Route::group(['middleware' => 'auth:api', 'prefix' => '/account'], function () {
 	/**
 	 *
 	 */
-    Route::get('/user', function (Request $request) {
-        return $request->user();
-    });
+    Route::get('/user', 'Account\\UserController@index');
 
 	/**
 	 *
