@@ -55,6 +55,7 @@
 
 <script>
 	import Form from 'vform';
+	import * as api from '~/services/routes';
 
 	export default {
 		layout: 'plain',
@@ -76,8 +77,9 @@
 		methods: {
 			async login () {
 				// Submit the form.
-				const { data } = await this.form.post('/api/login');
+				const { data } = await this.form.post(api.LOGIN);
 
+				console.log(data);
 				// Save the token.
 				this.$store.dispatch('auth/saveToken', {
 					token: data.meta.token,

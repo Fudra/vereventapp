@@ -34,6 +34,8 @@
 
 <script>
 	import Form from 'vform';
+	import * as api from '~/services/routes';
+
 
 	export default {
 		layout: 'plain',
@@ -51,7 +53,7 @@
 
 		methods: {
 			async send () {
-				const { data } = await this.form.post('/api/password/email');
+				const { data } = await this.form.post(api.PASSWORD_EMAIL);
 
 				this.status = data.status;
 

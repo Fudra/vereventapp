@@ -16,11 +16,15 @@ use Illuminate\Http\Request;
 /**
  * account routes
  */
+
+/**
+ *
+ */
+Route::group(['middleware' => 'auth:api'], function () {
+	Route::post( 'logout', 'Auth\LoginController@logout' );
+});
+
 Route::group(['middleware' => 'auth:api', 'prefix' => '/account'], function () {
-	/**
-	 *
-	 */
-    Route::post('logout', 'Auth\LoginController@logout');
 
 	/**
 	 *

@@ -67,6 +67,7 @@
 
 <script>
 	import Form from 'vform';
+	import * as api from '~/services/routes';
 
 	export default {
 		layout: 'plain',
@@ -87,7 +88,7 @@
 		methods: {
 			async register () {
 				// Register the user.
-				const { data } = await this.form.post('/api/register');
+				const { data } = await this.form.post(api.REGISTER);
 
 				//Log in the user.
 				//const { data: { token }} = await this.form.post('/api/login')
@@ -99,7 +100,7 @@
 				//await this.$store.dispatch('auth/updateUser', { user: data })
 
 				// Redirect home.
-				//this.$router.push({ name: 'home' })
+				this.$router.push({ name: 'home' })
 			},
 		},
 
