@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Account;
 
-use App\Event;
+use App\Models\Event;
 use App\Http\Requests\Events\StoreEventRequest;
 use App\Http\Requests\Events\UpdateEventRequest;
 use App\Transformers\EventTransformer;
@@ -21,6 +21,7 @@ class EventController extends Controller {
 
 		return fractal()
 			->collection( $events )
+			->parseIncludes(['tickets'])
 			->transformWith( new EventTransformer() )
 			->toArray();
 	}
@@ -67,7 +68,6 @@ class EventController extends Controller {
 			'title',
 			'description',
 			'description_short',
-			'price',
 			'live',
 			'private'
 		]));
@@ -111,12 +111,11 @@ class EventController extends Controller {
 			'title',
 			'description',
 			'description_short',
-			'price',
 			'live',
 			'private'
 		]));
 
-		return response()->json( [ 'status' => 'event.create.successfully' ], 200 );
+		return response()->json( [ 'status' => 'event.update.successfully' ], 200 );
 	}
 
 	/**
@@ -145,7 +144,6 @@ class EventController extends Controller {
 			'title'             => 'Untitled',
 			'description'       => 'None',
 			'description_short' => 'None',
-			'price'             => 0,
 			'finished'          => false,
 			'live'              => false,
 			'private'           => true,

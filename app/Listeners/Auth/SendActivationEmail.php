@@ -20,12 +20,13 @@ class SendActivationEmail
         //
     }
 
-    /**
-     * Handle the event.
-     *
-     * @param  object  $event
-     * @return void
-     */
+	/**
+	 * Handle the event.
+	 *
+	 * @param UserRequestedActivationEmail $event
+	 *
+	 * @return void
+	 */
     public function handle(UserRequestedActivationEmail $event)
     {
 	    if ( $event->user->active ) {

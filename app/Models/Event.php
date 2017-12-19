@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
@@ -13,7 +13,6 @@ class Event extends Model {
 		'title',
 		'description_short',
 		'description',
-		'price',
 		'finished',
 		'live',
 		'private',
@@ -26,15 +25,6 @@ class Event extends Model {
 	 */
 	public function user() {
 		return $this->belongsTo( User::class );
-	}
-
-	/**
-	 * Determinate if the event is free
-	 *
-	 * @return bool
-	 */
-	public function isFree() {
-		return $this->price == 0;
 	}
 
 	/**
@@ -85,6 +75,13 @@ class Event extends Model {
 	 */
 	public function getRouteKeyName() {
 		return 'identifier';
+	}
+
+	/**
+	 * @return \Illuminate\Database\Eloquent\Relations\HasMany
+	 */
+	public function tickets() {
+		return $this->hasMany(Ticket::class);
 	}
 
 	/**

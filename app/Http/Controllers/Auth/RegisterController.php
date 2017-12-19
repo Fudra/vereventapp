@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Events\Auth\UserRequestedActivationEmail;
-use App\User;
+use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
