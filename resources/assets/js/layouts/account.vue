@@ -27,6 +27,7 @@
 	export default {
 		name: 'account-layout',
 
+
 		components: {
 			AccountNavigation,
 			Navbar,

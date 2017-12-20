@@ -28,6 +28,11 @@ export default [
 					name: 'events.overview',
 					component: require('~/pages/account/events/overview'),
 				},
+				{
+					path: 'create',
+					name: 'events.create',
+					component: require('~/pages/account/events/create'),
+				},
 			]
 		},
 		{

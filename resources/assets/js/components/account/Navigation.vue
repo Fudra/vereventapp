@@ -26,6 +26,10 @@
 							{
 								name: 'Übersicht',
 								route: 'events.overview'
+							},
+							{
+								name: 'Erstellen',
+								route: 'events.create'
 							}
 						]
 					},

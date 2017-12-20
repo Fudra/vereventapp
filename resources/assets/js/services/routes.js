@@ -11,3 +11,5 @@ export const USER = '/api/account/user';
 // events
 export const EVENTS = '/api/events';
 export const ACCOUNT_EVENTS = '/api/account/events';
+export const EVENT_CREATE_TEMPLATE = '/api/account/events/create';
+export const EVENT_CREATE = '/api/account/events/{identifier}/create';

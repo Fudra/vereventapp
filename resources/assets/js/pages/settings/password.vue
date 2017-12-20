@@ -40,6 +40,7 @@
 
 <script>
 	import Form from 'vform';
+	import * as api from '~/services/routes';
 
 	export default {
 		metaInfo () {
@@ -47,10 +48,12 @@
 		},
 
 		data: () => ({
-			form: new Form({
-							   password: '',
-							   password_confirmation: '',
-						   }),
+			form: new Form(
+				{
+					password: '',
+					password_confirmation: '',
+				},
+			),
 		}),
 
 		methods: {

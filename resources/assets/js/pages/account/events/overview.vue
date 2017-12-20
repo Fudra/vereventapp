@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<h1 class="title">Übersicht aller Veranstaltungen</h1>
+		<h1 class="title">{{$t('event.overview')}}</h1>
 		<event-media-object v-for="(event, index) in events"
 							:event="event"
 							:key="index">
@@ -15,9 +15,13 @@
 		mapGetters,
 	} from 'vuex';
 
-
 	export default {
 		name: 'overview',
+
+		metaInfo () {
+			return { title: this.$t('event.overview') };
+		},
+
 		components: {
 			EventMediaObject,
 		},
