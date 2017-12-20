@@ -1,14 +1,8 @@
 <template>
 	<article class="media">
-		<!--<figure class="media-left">-->
-		<!--<p class="image is-64x64">-->
-		<!--<img src="https://bulma.io/images/placeholders/128x128.png">-->
-		<!--</p>-->
-		<!--</figure>-->
 		<div class="media-content">
 			<div class="content">
 				<p>
-					{{event.meta}}
 					<strong>{{ event.title }}</strong>
 					<br>
 					{{ event.description_short }}
@@ -57,8 +51,3 @@
 	};
 </script>
 
-<style>
-	.level-item .icon:first-child {
-		margin-right: 0.5em;
-	}
-</style>
