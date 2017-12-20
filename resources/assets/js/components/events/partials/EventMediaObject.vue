@@ -3,7 +3,11 @@
 		<div class="media-content">
 			<div class="content">
 				<p>
-					<strong>{{ event.title }}</strong>
+					<strong>
+						<router-link :to="{name: 'events.edit', params: { identifier: event.identifier}}">
+							{{event.title}}
+						</router-link>
+					</strong>
 					<br>
 					{{ event.description_short }}
 				</p>

@@ -38,10 +38,13 @@
     "description_short": "Event short description",
     "description": "Event long description",
     "live": "Is this event finished?",
-    "public": "Can this event seen by everybody?",
-    "overview": "Event overview"
+    "private": "Is this Event private?",
+    "overview": "Event overview",
+    "edit": "Edit your event",
+    "updated": "Your Event has been updated!"
   },
   "general" : {
-    "save": "Save"
+    "save": "Save",
+    "update": "Update"
   }
 }

@@ -5,9 +5,9 @@
 							:event="event"
 							:key="index">
 		</event-media-object>
-
 	</div>
 </template>
+
 <script>
 	import EventMediaObject from '~/components/events/partials/EventMediaObject';
 	import {

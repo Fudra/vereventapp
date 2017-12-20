@@ -33,6 +33,11 @@ export default [
 					name: 'events.create',
 					component: require('~/pages/account/events/create'),
 				},
+				{
+					path: '/:identifier/edit',
+					name: 'events.edit',
+					component: require('~/pages/account/events/edit'),
+				},
 			]
 		},
 		{
