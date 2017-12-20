@@ -6,6 +6,11 @@ export default [
 		name: 'welcome',
 		component: require('~/pages/welcome'),
 	},
+	{
+		path: '/event/:identifier',
+		name: 'event-detail',
+		component: require('~/pages/event/event-detail')
+	},
 
 	// Authenticated routes.
 	...middleware('auth', [

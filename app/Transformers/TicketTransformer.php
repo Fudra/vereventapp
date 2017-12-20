@@ -14,7 +14,7 @@ class TicketTransformer extends TransformerAbstract {
 			'available_from' => is_null( $ticket->available_from ) ? 'No Date' : $ticket->available_from->toDateTimeString(),
 			'available_to'   => is_null( $ticket->available_to ) ? 'No Data' : $ticket->available_to->toDateTimeString(),
 			'price'          => $ticket->price,
-			'visible'        => boolval( $ticket->visible ),
+//			'visible'        => boolval( $ticket->visible ),
 		];
 	}
 }

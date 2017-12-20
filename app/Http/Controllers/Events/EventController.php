@@ -35,7 +35,7 @@ class EventController extends Controller
 	public function show( Event $event ) {
 		return fractal()
 			->item( $event )
-			->parseIncludes(['user'])
+			->parseIncludes(['user', 'tickets'])
 			->transformWith( new EventTransformer() )
 			->toArray();
 	}

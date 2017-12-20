@@ -2,5 +2,6 @@
 
 
 export default {
-	events: null,
+	events: {},
+	event: {},
 };

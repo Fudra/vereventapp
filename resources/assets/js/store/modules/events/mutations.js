@@ -11,4 +11,16 @@ export default {
 	[types.FETCH_EVENTS_FAILURE] (state) {
 		state.events = null;
 	},
+
+	[types.FETCH_EVENT_SUCCESS] (state, { event }) {
+		console.log(event);
+		state.event = event;
+	},
+
+	[types.FETCH_EVENT_FAILURE] (state) {
+		state.event = {
+			user: {},
+			tickets: {}
+		};
+	},
 };

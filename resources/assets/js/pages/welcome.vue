@@ -16,6 +16,7 @@
 		</section>
 
 		<events></events>
+
 	</div>
 </template>
 
