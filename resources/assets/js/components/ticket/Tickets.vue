@@ -16,7 +16,7 @@
 </template>
 
 <script>
-	import TicketCard from '~/components/ticket/TicketCard';
+	import TicketCard from '~/components/ticket/partials/TicketCard';
 
 	import {
 		mapActions,

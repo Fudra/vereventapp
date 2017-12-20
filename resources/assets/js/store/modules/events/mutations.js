@@ -13,7 +13,6 @@ export default {
 	},
 
 	[types.FETCH_EVENT_SUCCESS] (state, { event }) {
-		console.log(event);
 		state.event = event;
 	},
 

@@ -10,3 +10,4 @@ export const USER = '/api/account/user';
 
 // events
 export const EVENTS = '/api/events';
+export const ACCOUNT_EVENTS = '/api/account/events';

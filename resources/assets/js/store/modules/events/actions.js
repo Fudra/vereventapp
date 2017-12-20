@@ -23,3 +23,15 @@ export const fetchEvent = async ({ commit }, payload) => {
 		commit(types.FETCH_EVENT_FAILURE);
 	}
 };
+
+
+export const fetchAccountEvents = async ({ commit }) => {
+	try {
+		const { data } = await axios.get(api.ACCOUNT_EVENTS);
+
+		commit(types.FETCH_EVENTS_SUCCESS, { events: data.data });
+	} catch (e) {
+		commit(types.FETCH_EVENTS_FAILURE);
+	}
+};
+

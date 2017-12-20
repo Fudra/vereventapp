@@ -24,8 +24,8 @@
 						label: 'Veranstalungen',
 						links:  [
 							{
-								name: 'abc',
-								route: ''
+								name: 'Übersicht',
+								route: 'events.overview'
 							}
 						]
 					},

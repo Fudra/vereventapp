@@ -17,7 +17,7 @@
 </template>
 
 <script>
-	import EventCard from '~/components/events/EventCard';
+	import EventCard from '~/components/events/partials/EventCard';
 
 	import {
 		mapActions,
@@ -34,26 +34,8 @@
 				default: 3,
 			},
 		},
-		created () {
-			this.fetchEvents();
-		},
-		methods: {
-			...mapActions(
-				{
-					fetchEvents: 'events/fetchEvents',
-				},
-			),
-			getChunkedEvents () {
-				return chunk(this.events, this.chunkSize);
-			},
-		},
-		computed: {
-			...mapGetters(
-				{
-					events: 'events/events',
-				},
-			)
-		},
+
+
 		components: {
 			EventCard,
 		}

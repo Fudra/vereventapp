@@ -20,12 +20,23 @@ export default [
 			component: require('~/pages/profile/home'),
 		},
 		{
+			path: '/events',
+			component: require('~/pages/account/events/index'),
+			children: [
+				{
+					path: 'overview',
+					name: 'events.overview',
+					component: require('~/pages/account/events/overview'),
+				},
+			]
+		},
+		{
 			path: '/settings',
-			name: 'settings',
 			component: require('~/pages/settings/index'),
 			children: [
 				{
 					path: '',
+					name: 'settings',
 					redirect: { name: 'settings.profile' },
 				},
 				{
