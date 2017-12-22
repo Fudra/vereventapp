@@ -25,7 +25,7 @@
 						links:  [
 							{
 								name: 'Übersicht',
-								route: 'events.overview'
+								route: 'events.index'
 							},
 							{
 								name: 'Erstellen',

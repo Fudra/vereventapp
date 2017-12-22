@@ -43,6 +43,11 @@
     "edit": "Edit your event",
     "updated": "Your Event has been updated!"
   },
+  "tickets" : {
+    "heading": "Tickets",
+    "create": "Create a new Ticket to your Event",
+    "edit": "Edit your ticket"
+  },
   "general" : {
     "save": "Save",
     "update": "Update"

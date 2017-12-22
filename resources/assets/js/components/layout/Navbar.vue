@@ -81,8 +81,4 @@
 		box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
 	}
 
-	.is-profile {
-		margin-right: 10px;
-		border-radius: 50%;
-	}
 </style>

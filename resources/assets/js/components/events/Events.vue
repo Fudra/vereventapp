@@ -1,11 +1,10 @@
 <template>
 	<section class="section">
 		<div class="container">
-			<h2 class="title is-2 has-text-centered">Events</h2>
+			<h2 class="title has-text-centered">Events</h2>
 
 			<div class="columns" v-for="events in getChunkedEvents()">
-				<div class="column is-one-fifth"
-					 :class="{ 'is-offset-one-fifth': index === 0}"
+				<div class="column is-one-third"
 					 v-for="(event, index) in events"
 					 :key="index">
 					<event-card :event="event"></event-card>
@@ -34,8 +33,26 @@
 				default: 3,
 			},
 		},
-
-
+		created () {
+			this.fetchEvents();
+		},
+		methods: {
+			...mapActions(
+				{
+					fetchEvents: 'events/fetchEvents',
+				},
+			),
+			getChunkedEvents () {
+				return chunk(this.events, this.chunkSize);
+			},
+		},
+		computed: {
+			...mapGetters(
+				{
+					events: 'events/events',
+				},
+			)
+		},
 		components: {
 			EventCard,
 		}

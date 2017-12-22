@@ -4,7 +4,7 @@
 			<div class="content">
 				<p>
 					<strong>
-						<router-link :to="{name: 'events.edit', params: { identifier: event.identifier}}">
+						<router-link :to="{name: 'events.edit', params: { event: event.identifier}}">
 							{{event.title}}
 						</router-link>
 					</strong>
@@ -13,10 +13,10 @@
 				</p>
 			</div>
 			<nav class="level is-mobile">
-				<a class="level-item">
+				<router-link :to="{name: 'events.tickets.index', params: { event: event.identifier }}" class="level-item">
 					<span class="icon"><fa icon="ticket-alt" fixed-width/></span>
 					<span>{{event.tickets.data.length}}</span>
-				</a>
+				</router-link>
 				<a class="level-item">
 					<span class="icon"><fa icon="users" fixed-width/></span>
 					<span>0</span>

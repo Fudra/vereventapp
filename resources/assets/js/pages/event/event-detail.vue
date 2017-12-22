@@ -93,7 +93,7 @@
 			)
 		},
 		mounted () {
-			this.fetchEvent(this.$route.params.identifier);
+			this.fetchEvent(this.$route.params.event);
 		},
 	};
 </script>

@@ -80,7 +80,6 @@
 						title: '',
 						description: '',
 						description_short: '',
-						price: 0,
 						live: false,
 						private: false,
 					},

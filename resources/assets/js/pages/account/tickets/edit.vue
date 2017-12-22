@@ -1,8 +1,8 @@
 <template>
 	<div>
-		<h1 class="title">{{$t('event.edit')}}</h1>
-		<form @submit.prevent="updated" @keydown="form.onKeydown($event)" class="form">
-			<!--<alert-success :form="form" :message="$t('event.updated')"></alert-success>-->
+		<h1 class="title">{{$t('ticket.edit')}}</h1>
+		<form @submit.prevent="create" @keydown="form.onKeydown($event)" class="form">
+			<alert-success :form="form" :message="$t('event.created')"></alert-success>
 
 			<!-- title -->
 			<div class="field">
@@ -47,7 +47,7 @@
 					<checkbox v-model="form.live" name="live">{{ $t('event.live') }}</checkbox>
 				</p>
 				<p class="control">
-					<checkbox v-model="form.private" name="private">{{ $t('event.private') }}</checkbox>
+					<checkbox v-model="form.public" name="public">{{ $t('event.public') }}</checkbox>
 				</p>
 			</div>
 
@@ -55,7 +55,7 @@
 			<div class="field">
 				<p class="control">
 					<button class="button is-primary" :class="{'is-loading': form.busy }">
-						{{ $t('general.update') }}
+						{{ $t('general.save') }}
 					</button>
 				</p>
 			</div>
@@ -69,52 +69,43 @@
 	import * as api from '~/services/routes';
 
 	export default {
+		name: 'tickets-create',
+
 		metaInfo () {
-			return { title: this.$t('event.edit') };
+			return { title: this.$t('ticket.create') };
 		},
 
-		data () {
+		data() {
 			return {
+				identifier: null,
 				form: new Form(
 					{
-						title: '',
-						description: '',
-						description_short: '',
+						name: '',
+						quantity: 0,
+						available_from: null,
+						available_to: null,
 						price: 0,
-						live: false,
-						private: true,
+						visible: false,
 					},
 				),
-				identifier: null,
-			};
+			}
 		},
+		mounted:{
+			async create () {
+				console.log('create new Ticket');
 
-		methods: {
-			async updated () {
-				await this.form.post(`/api/account/events/${this.identifier}`);
-				//this.form.reset();
-				//this.identifier = null;
+				//await this.form.post(`/api/account/events/${this.identifier}`);
+				this.form.reset();
+				this.identifier = null;
 			},
-
-			async fetch () {
+			getIdentifer() {
 				this.identifier = this.$route.params.event;
-				const { data } = await this.form.get(`/api/events/${this.identifier}`);
-
-				this.fillEventData(data.data);
-			},
-			fillEventData (data) {
-				this.form.keys()
-					.forEach(key => {
-						this.form[key] = data[key];
-					});
-
-				this.form.live = data.meta.live;
-				this.form.private = data.meta.private;
 			},
 		},
 
-		mounted () {
-			this.fetch();
-		},
-	};
+		create() {
+			this.getIdentifer();
+		}
+
+	}
 </script>

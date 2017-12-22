@@ -7,7 +7,7 @@ export default [
 		component: require('~/pages/welcome'),
 	},
 	{
-		path: '/event/:identifier',
+		path: '/event/:event',
 		name: 'event-detail',
 		component: require('~/pages/event/event-detail')
 	},
@@ -21,12 +21,12 @@ export default [
 		},
 		{
 			path: '/events',
-			component: require('~/pages/account/events/index'),
+			component: require('~/pages/account/events/layout'),
 			children: [
 				{
 					path: 'overview',
-					name: 'events.overview',
-					component: require('~/pages/account/events/overview'),
+					name: 'events.index',
+					component: require('~/pages/account/events/index'),
 				},
 				{
 					path: 'create',
@@ -34,10 +34,29 @@ export default [
 					component: require('~/pages/account/events/create'),
 				},
 				{
-					path: '/:identifier/edit',
+					path: ':event/edit',
 					name: 'events.edit',
 					component: require('~/pages/account/events/edit'),
 				},
+				// tickets
+				{
+					path: ':event/tickets',
+					name: 'events.tickets.index',
+					component: require('~/pages/account/tickets/index')
+				},
+				{
+					path: ':event/tickets/create',
+					name: 'events.tickets.create',
+					component: require('~/pages/account/tickets/create')
+				},
+				{
+					path: ':event/tickets/:ticket/edit',
+					name: 'events.tickets.edit',
+					component: require('~/pages/account/tickets/edit')
+				}
+
+				// teilnehmer
+
 			]
 		},
 		{
