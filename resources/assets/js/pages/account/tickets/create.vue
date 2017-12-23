@@ -17,27 +17,37 @@
 
 			<!-- quantitiy / price -->
 			<div class="field is-grouped">
-				<label class="label" for="quantity">{{ $t('ticket.quantity') }}</label>
+
 				<p class="control">
+					<label class="label" for="quantity">{{ $t('ticket.quantity') }}</label>
 					<input v-model="form.quantity" type="text" name="quantity" class="input"
 						   id="quantity"
 						   :class="{ 'is-danger': form.errors.has('quantity') }">
 					<has-error :form="form" field="quantity"></has-error>
 				</p>
+				<div class="field has-addons">
+					<p class="control">
+						<label class="label" for="price">{{ $t('ticket.price') }}</label>
+						<input v-model="form.price" type="text" name="price" class="input"
+							   id="price"
+							   :class="{ 'is-danger': form.errors.has('price') }">
+						<has-error :form="form" field="price"></has-error>
+					</p>
+					<p class="control">
+						<label class="label">&nbsp;</label>
+						<a class="button is-static">
+							€
+						</a>
+					</p>
+				</div>
 
-				<label class="label" for="price">{{ $t('ticket.price') }}</label>
-				<p class="control">
-					<input v-model="form.price" type="text" name="price" class="input"
-						   id="price"
-						   :class="{ 'is-danger': form.errors.has('price') }">
-					<has-error :form="form" field="price"></has-error>
-				</p>
 			</div>
 
 			<!-- Datetime -->
 			<div class="field is-grouped">
 				<p class="control">
-					<vue-datepicker-local v-model="time" type="normal" />
+					<label class="label" for="quantity">{{ $t('ticket.date') }}</label>
+					<vue-datepicker-local v-model="time" type="normal" :local="local" />
 					<has-error :form="form" field="available_from"></has-error>
 					<has-error :form="form" field="available_to"></has-error>
 				</p>
@@ -61,6 +71,7 @@
 	import axios from 'axios';
 	import * as api from '~/services/routes';
 	import VueDatepickerLocal from 'vue-datepicker-local'
+	import localMixins from '~/services/ui/datetime_local'
 
 	export default {
 		name: 'tickets-create',
@@ -68,6 +79,7 @@
 		metaInfo () {
 			return { title: this.$t('ticket.create') };
 		},
+		mixins:[localMixins],
 
 		data() {
 			return {

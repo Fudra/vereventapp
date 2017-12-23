@@ -51,5 +51,16 @@
   "general" : {
     "save": "Save",
     "update": "Update"
+  },
+  "local": {
+    "date" : {
+      "hourTip": "Hour",
+      "minuteTip": "Minutes",
+      "secondTip": "Seconds",
+      "yearSuffix": "",
+      "monthsHead": "Jan._Feb._Mar._Apr._May_Jun._Jul._Aug._Sep._Oct._Nov._Dec.",
+      "months": "Jan._Feb._Mar._Apr._May_Jun._Jul._Aug._Sep._Oct._Nov._Dec.",
+      "weeks": "Mo_Tu_We_Th_Fr_Sa_Su"
+    }
   }
 }
