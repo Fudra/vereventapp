@@ -54,8 +54,8 @@ class Ticket extends Model
 	protected static function boot() {
 		parent::boot();
 
-		static::creating( function ( $file ) {
-			$file->identifier = uniqid( true );
+		static::creating( function ( $ticket ) {
+			$ticket->identifier = uniqid( true );
 		} );
 	}
 }

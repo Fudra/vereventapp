@@ -34,6 +34,13 @@ class User extends Authenticatable implements JWTSubject
 	    'remember_token',
     ];
 
+	/**
+	 * @return string
+	 */
+	public function getRouteKeyName() {
+		return 'identifier';
+	}
+
     /**
      * The accessors to append to the model's array form.
      *
@@ -102,5 +109,17 @@ class User extends Authenticatable implements JWTSubject
 
 	public function events() {
 		return $this->hasMany(Event::class);
+	}
+
+
+	/**
+	 * Generate unique id for this entry
+	 */
+	protected static function boot() {
+		parent::boot();
+
+		static::creating( function ( $user ) {
+			$user->identifier = uniqid( true );
+		} );
 	}
 }

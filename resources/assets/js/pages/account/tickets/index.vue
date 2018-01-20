@@ -18,6 +18,20 @@
 		</div>
 
 		<pre>{{event.tickets.data}}</pre>
+
+		<b-table :data="event.tickets.data"
+				 :hoverable="true"
+				 :mobile-cards="true">
+			<template slot-scope="props">
+				<!--<b-table-column  v-for="(item, index) in props.row" :key="index" sortable>-->
+					<!--&lt;!&ndash;{{ props.row.id }}&ndash;&gt;-->
+					<!--{{item}}-->
+				<!--</b-table-column>-->
+
+
+			</template>
+
+		</b-table>
 	</div>
 </template>
 

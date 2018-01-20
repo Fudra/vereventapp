@@ -22,6 +22,11 @@ class EventTransformer extends TransformerAbstract {
 				'live'    => boolval( $event->live ),
 				'private' => boolval( $event->private ),
 			],
+			'_links' => [
+				'self' => [
+					'href' => route('event.show', ['event' => $event->identifier]),
+				]
+			],
 		];
 	}
 

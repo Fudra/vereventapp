@@ -12,8 +12,8 @@
 */
 
 // static routes
-Route::get('oauth/{driver}', 'Auth\OAuthController@redirectToProvider')->name('oauth');
-Route::get('oauth/{driver}/callback', 'Auth\OAuthController@handleProviderCallback')->name('oauth.callback');
+//Route::get('oauth/{driver}', 'Auth\OAuthController@redirectToProvider')->name('oauth');
+//Route::get('oauth/{driver}/callback', 'Auth\OAuthController@handleProviderCallback')->name('oauth.callback');
 
 Route::get('auth/activate', 'Auth\\ActivationController@activate')->name('auth.active');
 
