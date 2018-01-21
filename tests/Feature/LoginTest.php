@@ -2,40 +2,61 @@
 
 namespace Tests\Feature;
 
-use App\User;
+use App\Models\User;
 use Tests\TestCase;
 
 class LoginTest extends TestCase
 {
-    /** @var \App\User */
+    /** @var \App\Models\User */
     protected $user;
 
-    public function setUp()
+	/**
+	 *
+	 */
+	public function setUp()
     {
         parent::setUp();
 
         $this->user = factory(User::class)->create();
+	    $this->user->update( [
+		    'active'           => true,
+		    'activation_token' => null,
+	    ]);
+    }
+
+    /** @test */
+    function can_not_login_without_email_activation(){
+	    $this->user = factory(User::class)->create();
+
+	    $this->postJson('/api/login', [
+		    'email' => $this->user->email,
+		    'password' => 'secret',
+	    ])->assertStatus(422);
     }
 
     /** @test */
     function authenticate()
     {
+	    $this->user->update( [
+		    'active'           => true,
+		    'activation_token' => null,
+	    ]);
         $this->postJson('/api/login', [
             'email' => $this->user->email,
             'password' => 'secret',
         ])
         ->assertSuccessful()
-        ->assertJsonStructure(['token', 'expires_in'])
-        ->assertJson(['token_type' => 'bearer']);
+        ->assertJsonStructure(['meta' => ['token', 'expires_in']])
+        ->assertJson(['meta' => ['token_type' => 'bearer']]);
     }
 
     /** @test */
     function fetch_the_current_user()
     {
         $this->actingAs($this->user)
-            ->getJson('/api/user')
+            ->getJson('/api/account/user')
             ->assertSuccessful()
-            ->assertJsonStructure(['id', 'name', 'email']);
+            ->assertJsonStructure(['data'=> ['identifier', 'name', 'email', 'photo_url']]);
     }
 
     /** @test */
@@ -44,12 +65,12 @@ class LoginTest extends TestCase
         $token = $this->postJson('/api/login', [
             'email' => $this->user->email,
             'password' => 'secret',
-        ])->json()['token'];
+        ])->json()['meta'];
 
-        $this->postJson("/api/logout?token=$token")
+        $this->postJson("/api/logout?token=" . $token['token'])
             ->assertSuccessful();
 
-        $this->getJson("/api/user?token=$token")
+        $this->getJson("/api/account/user?token=" . $token['token'] )
             ->assertStatus(401);
     }
 }

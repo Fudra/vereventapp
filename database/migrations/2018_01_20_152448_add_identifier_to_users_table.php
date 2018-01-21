@@ -14,7 +14,7 @@ class AddIdentifierToUsersTable extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-	        $table->string('identifier')->unique();
+//	        $table->string('identifier')->unique();
         });
     }
 
@@ -26,7 +26,7 @@ class AddIdentifierToUsersTable extends Migration
     public function down()
     {
         Schema::table('users', function (Blueprint $table) {
-	        $table->dropColumn('identifier');
+//	        $table->dropColumn('identifier');
         });
     }
 }

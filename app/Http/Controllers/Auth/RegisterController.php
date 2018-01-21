@@ -39,7 +39,8 @@ class RegisterController extends Controller
 
 		return response()->json([
 			'root' => [
-				'Registered. Please check your email to activate your account.'
+				'status' => '200',
+				'message' => 'Registered. Please check your email to activate your account.'
 			]
 		], 200);
 	}

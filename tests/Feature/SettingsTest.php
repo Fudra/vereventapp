@@ -2,7 +2,7 @@
 
 namespace Tests\Feature;
 
-use App\User;
+use App\Models\User;
 use Tests\TestCase;
 use Illuminate\Support\Facades\Hash;
 
@@ -16,13 +16,17 @@ class SettingsTest extends TestCase
         parent::setUp();
 
         $this->user = factory(User::class)->create();
+	    $this->user->update( [
+		    'active'           => true,
+		    'activation_token' => null,
+	    ]);
     }
 
     /** @test */
     public function update_profile_info()
     {
         $this->actingAs($this->user)
-            ->patchJson('/api/settings/profile', [
+            ->patchJson('/api/account/settings/profile', [
                 'name' => 'Test User',
                 'email' => 'test@test.app',
             ])
@@ -40,7 +44,7 @@ class SettingsTest extends TestCase
     public function update_password()
     {
         $this->actingAs($this->user)
-            ->patchJson('/api/settings/password', [
+            ->patchJson('/api/account/settings/password', [
                 'password' => 'updated',
                 'password_confirmation' => 'updated',
             ])
