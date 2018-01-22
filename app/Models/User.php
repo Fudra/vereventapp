@@ -60,15 +60,6 @@ class User extends Authenticatable implements JWTSubject
         return 'https://www.gravatar.com/avatar/'.md5(strtolower($this->email)).'.jpg?s=200&d=mm';
     }
 
-    /**
-     * Get the oauth providers.
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
-     */
-    public function oauthProviders()
-    {
-        return $this->hasMany(OAuthProvider::class);
-    }
 
     /**
      * @return int
@@ -107,10 +98,12 @@ class User extends Authenticatable implements JWTSubject
 		return $builder->where('email', $email);
 	}
 
+	/**
+	 * @return \Illuminate\Database\Eloquent\Relations\HasMany
+	 */
 	public function events() {
 		return $this->hasMany(Event::class);
 	}
-
 
 	/**
 	 * Generate unique id for this entry

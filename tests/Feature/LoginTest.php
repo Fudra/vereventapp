@@ -35,12 +35,8 @@ class LoginTest extends TestCase
     }
 
     /** @test */
-    function authenticate()
+    function user_can_authenticate()
     {
-	    $this->user->update( [
-		    'active'           => true,
-		    'activation_token' => null,
-	    ]);
         $this->postJson('/api/login', [
             'email' => $this->user->email,
             'password' => 'secret',
@@ -60,7 +56,7 @@ class LoginTest extends TestCase
     }
 
     /** @test */
-    function log_out()
+    function user_can_log_out()
     {
         $token = $this->postJson('/api/login', [
             'email' => $this->user->email,
@@ -73,4 +69,12 @@ class LoginTest extends TestCase
         $this->getJson("/api/account/user?token=" . $token['token'] )
             ->assertStatus(401);
     }
+
+	/** @test */
+	public function user_can_delete_account()
+	{
+		$this->deleteJson('/api/account')
+		     ->assertSuccessful();
+		     //->assertJsonStructure(['root' => ['status', 'message']]);
+	}
 }

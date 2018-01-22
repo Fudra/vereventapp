@@ -90,8 +90,8 @@ class Event extends Model {
 	protected static function boot() {
 		parent::boot();
 
-		static::creating( function ( $e ) {
-			$file->identifier = uniqid( true );
+		static::creating( function ( $event ) {
+			$event->identifier = uniqid( true );
 		} );
 	}
 

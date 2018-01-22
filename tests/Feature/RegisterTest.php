@@ -7,7 +7,7 @@ use Tests\TestCase;
 class RegisterTest extends TestCase
 {
     /** @test */
-    public function can_register()
+    public function user_can_register()
     {
         $this->postJson('/api/register', [
             'name' => 'Test User',

@@ -16,7 +16,6 @@ class ActivationController extends Controller
 			'activation_token' => null,
 		]);
 
-
 		return redirect('/')->withSuccess('Activated! You can now signed in.');
 	}
 }
