@@ -17,18 +17,34 @@
 			</div>
 		</div>
 
-		<pre>{{event.tickets.data}}</pre>
-
 		<b-table :data="event.tickets.data"
 				 :hoverable="true"
+				 :per-page="1"
 				 :mobile-cards="true">
 			<template slot-scope="props">
-				<!--<b-table-column  v-for="(item, index) in props.row" :key="index" sortable>-->
-					<!--&lt;!&ndash;{{ props.row.id }}&ndash;&gt;-->
-					<!--{{item}}-->
-				<!--</b-table-column>-->
+				<b-table-column  field="name" label="Name" sortable>
+					{{ props.row.name }}
+				</b-table-column>
 
+				<b-table-column  field="quantity" label="Anzahl" sortable>
+					{{ props.row.quantity }}
+				</b-table-column>
 
+				<b-table-column  field="available_from" label="Verfügbar ab" sortable>
+					{{ new Date(props.row.available_from).toLocaleDateString() }}
+				</b-table-column>
+
+				<b-table-column  field="available_to" label="Verfügbar bis" sortable>
+					{{ new Date(props.row.available_to).toLocaleDateString() }}
+				</b-table-column>
+
+				<b-table-column  field="price" label="Preis" sortable>
+					{{ props.row.price }}
+				</b-table-column>
+
+				<b-table-column  label="Edit">
+					<router-link :to="{name:'events.tickets.edit', params: { ticket: props.row.identifier, event: identifier}} " tag="button" class="button is-primary">Edit</router-link>
+				</b-table-column>
 			</template>
 
 		</b-table>
@@ -67,6 +83,5 @@
 		mounted() {
 			this.fetch();
 		}
-
 	};
 </script>

@@ -52,7 +52,6 @@ Route::group(['middleware' => 'auth:api', 'prefix' => '/account'], function () {
 	     */
 	    Route::group(['prefix' => '/{event}/ticket'], function () {
 		    Route::post('/', 'Account\\TicketController@store')->name('account.event.ticket.store');
-		    Route::get('/{ticket}/edit', 'Account\\TicketController@edit')->name('account.event.ticket.edit');
 		    Route::patch('/{ticket}', 'Account\\TicketController@update')->name('account.event.ticket.update');
 		    Route::delete('/{ticket}', 'Account\\TicketController@destroy')->name('account.event.ticket.destroy');
 	    });
@@ -87,6 +86,8 @@ Route::group(['prefix' => '/events'], function () {
 	Route::get('/', 'Events\\EventController@index')->name('event.index');
 	Route::get('/{event}', 'Events\\EventController@show')->name('event.show');
 	Route::get('/{event}/tickets', 'Events\\TicketController@show')->name('event.ticket.show');
+	Route::get('/{event}/ticket/{ticket}/', 'Account\\TicketController@edit')->name('event.ticket.get');
+
 
 	// Ticket Checkout
 });
