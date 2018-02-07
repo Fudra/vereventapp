@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
+use Illuminate\Auth\Events\PasswordReset;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ResetsPasswords;
@@ -56,11 +57,9 @@ class ResetPasswordController extends Controller
 		$user->setRememberToken( str_random( 60 ) );
 		$user->save();
 
-//		if($user->active) {
 		event( new PasswordReset( $user ) );
 
 		return response()->json( [ 'status' => trans( 'password.reset' ) ], 200 );
-//			$this->guard()->login($user);
-//		}
+
 	}
 }

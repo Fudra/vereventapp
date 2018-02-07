@@ -8,8 +8,9 @@ use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Support\Facades\Mail;
 
-class SendActivationEmail
+class SendActivationEmail implements ShouldQueue
 {
+
     /**
      * Create the event listener.
      *
@@ -33,6 +34,7 @@ class SendActivationEmail
 		    return;
 	    }
 
-	    Mail::to($event->user->email)->send(new ActivationEmail($event->user));
+	    Mail::to($event->user->email)
+	        ->send(new ActivationEmail($event->user));
     }
 }

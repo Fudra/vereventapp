@@ -9,8 +9,8 @@ class Attendee extends Model
 	//use SoftDeletes;
 
 	protected $fillable = [
-		'sale_price',
-		'sale_commission',
+		'price',
+		'commission',
 	];
 
 	/**

@@ -16,6 +16,9 @@ class EventServiceProvider extends ServiceProvider
         'App\Events\Auth\UserRequestedActivationEmail' => [
             'App\Listeners\Auth\SendActivationEmail',
         ],
+	    'Illuminate\Auth\Events\PasswordReset' => [
+	    	'App\Listeners\Auth\SendPasswordChangeEmail',
+	    ],
     ];
 
     /**

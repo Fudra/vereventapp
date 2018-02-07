@@ -10,10 +10,16 @@
             <!-- Email -->
             <div class="field">
               <label class="label" for="email">{{ $t('email') }}</label>
-              <p class="control">
-                <input v-model="form.email" type="email" name="email" class="input" id="email"
-                       :class="{ 'is-danger': form.errors.has('email') }">
+              <p :class="{ 'control': true }">
+                <input v-model="form.email"
+                       type="email"
+                       name="email"
+                       class="input"
+                       id="email"
+                       v-validate="'required|email'"
+                       :class="{ 'is-danger': form.errors.has('email') || errors.has('email') , 'input': true}">
                 <has-error :form="form" field="email"></has-error>
+                <span v-show="errors.has('email')" class="help is-danger">{{ errors.first('email') }}</span>
               </p>
             </div>
 
