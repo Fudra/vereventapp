@@ -10,7 +10,6 @@
 					<event-card :event="event"></event-card>
 				</div>
 			</div>
-
 		</div>
 	</section>
 </template>
@@ -32,9 +31,16 @@
 				type: Number,
 				default: 3,
 			},
+			fetchAll: {
+				type: Boolean,
+				default: true,
+			}
 		},
 		created () {
-			this.fetchEvents();
+			if(this.fetchAll)
+			{
+				this.fetchEvents();
+			}
 		},
 		methods: {
 			...mapActions(

@@ -4,7 +4,7 @@ import axios from 'axios/index';
 import * as types from './mutation-types';
 import * as api from '~/services/routes';
 
-export const saveToken = ({ commit }, payload) => commit(types.SAVE_TOKEN, payload);
+export const saveToken = ({ commit  }, payload) => commit(types.SAVE_TOKEN, payload);
 
 export const fetchUser = async ({ commit }) => {
 	try {

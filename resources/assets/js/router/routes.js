@@ -1,15 +1,30 @@
 /* eslint-disable  */
 
 export default [
+	// Home
 	{
 		path: '/',
 		name: 'welcome',
 		component: require('~/pages/welcome'),
 	},
+
+	// Events
 	{
 		path: '/event/:event',
 		name: 'event-detail',
-		component: require('~/pages/event/event-detail')
+		component: require('~/pages/event/event-detail'),
+	},
+
+	// User
+	{
+		path: '/users',
+		name: 'users.index',
+		component: require('~/pages/user/user-index'),
+	},
+	{
+		path: '/users/:user',
+		name: 'users.detail',
+		component: require('~/pages/user/user-detail'),
 	},
 
 	// Authenticated routes.

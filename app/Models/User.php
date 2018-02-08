@@ -88,6 +88,10 @@ class User extends Authenticatable implements JWTSubject
 		return $builder->where( 'email', $email )->where( 'activation_token', $token);
 	}
 
+	public function scopeActive( Builder $builder ) {
+		return $builder->where('active', 1);
+	}
+
 	/**
 	 * @param Builder $builder
 	 * @param $email

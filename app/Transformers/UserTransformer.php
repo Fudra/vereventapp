@@ -26,6 +26,6 @@ class UserTransformer extends TransformerAbstract {
 	}
 
 	public function includeEvents( User $user ) {
-		return $this->collection($user->events, new EventTransformer());
+		return $this->collection($user->events()->isFinished()->get(), new EventTransformer());
 	}
 }

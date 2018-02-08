@@ -32,14 +32,14 @@
 					<!--<span class="tag">Three</span>-->
 				<!--</div>-->
 				<!--<p class="subtitle is-6"><a href="#">{{event.user.data.name}}</a></p>-->
-				<nav class="level">
+				<nav class="level" v-if="event.data">
 					<div class="level-item"></div>
 					<div class="level-item has-text-centered">
 						<div>
 							<figure class="image is-64x64">
 								<img class="is-rounded" :src="event.user.data.photo_url" alt="">
-								<p class="heading">{{event.user.data.name}}</p>
 							</figure>
+							<p class="heading">{{event.user.data.name}}</p>
 						</div>
 					</div>
 					<div class="level-item"></div>

@@ -24,6 +24,10 @@ export const fetchEvent = async ({ commit }, payload) => {
 	}
 };
 
+export const storeEvents = ({commit}, data) => {
+	commit(types.FETCH_EVENTS_SUCCESS, { events: data.events.data });
+};
+
 
 export const fetchAccountEvents = async ({ commit }) => {
 	try {

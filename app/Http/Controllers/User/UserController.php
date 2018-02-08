@@ -10,6 +10,21 @@ use App\Http\Controllers\Controller;
 class UserController extends Controller
 {
 	/**
+	 * Show all available users resource.
+	 *
+	 * @param User $user
+	 *
+	 * @return \Illuminate\Http\Response
+	 */
+	public function index() {
+
+		return fractal()
+			->collection( User::active()->get() )
+			->transformWith( new UserTransformer() )
+			->toArray();
+	}
+
+	/**
 	 * Display the specified resource.
 	 *
 	 * @param User $user

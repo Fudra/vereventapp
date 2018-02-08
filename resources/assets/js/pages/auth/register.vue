@@ -39,12 +39,12 @@
 
 						<!-- Password confirmed-->
 						<div class="field">
-							<label class="label" for="confirm_password">{{ $t('confirm_password') }}</label>
+							<label class="label" for="password_confirmation">{{ $t('password_confirmation') }}</label>
 							<p class="control">
-								<input v-model="form.confirm_password" type="password" name="confirm_password"
+								<input v-model="form.password_confirmation" type="password" name="password_confirmation"
 									   class="input"
-									   id="confirm_password"
-									   :class="{ 'is-danger': form.errors.has('confirm_password') }">
+									   id="password_confirmation"
+									   :class="{ 'is-danger': form.errors.has('password_confirmation') }">
 								<has-error :form="form" field="password"></has-error>
 							</p>
 						</div>
@@ -77,12 +77,14 @@
 		},
 
 		data: () => ({
-			form: new Form({
-							   name: '',
-							   email: '',
-							   password: '',
-							   password_confirmation: '',
-						   }),
+			form: new Form(
+				{
+					name: '',
+					email: '',
+					password: '',
+					password_confirmation: '',
+				},
+			),
 		}),
 
 		methods: {
@@ -100,7 +102,7 @@
 				//await this.$store.dispatch('auth/updateUser', { user: data })
 
 				// Redirect home.
-				this.$router.push({ name: 'home' })
+				this.$router.push({ name: 'home' });
 			},
 		},
 

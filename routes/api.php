@@ -25,6 +25,7 @@ Route::group(['middleware' => 'auth:api'], function () {
 });
 
 Route::group(['prefix' => '/user'], function () {
+	Route::get('/', 'User\\UserController@index')->name('user.index');
 	Route::get('/{user}', 'User\\UserController@show')->name('user.show');
 });
 
@@ -87,7 +88,6 @@ Route::group(['prefix' => '/events'], function () {
 	Route::get('/{event}', 'Events\\EventController@show')->name('event.show');
 	Route::get('/{event}/tickets', 'Events\\TicketController@show')->name('event.ticket.show');
 	Route::get('/{event}/ticket/{ticket}/', 'Account\\TicketController@edit')->name('event.ticket.get');
-
 
 	// Ticket Checkout
 });

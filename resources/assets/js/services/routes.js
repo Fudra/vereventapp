@@ -6,7 +6,10 @@ export const LOGOUT = '/api/logout';
 export const PASSWORD_EMAIL = '/api/password/email';
 
 // account
-export const USER = '/api/account/user';
+export const MYSELF = '/api/account/user';
+
+// user
+export const USER = '/api/user';
 
 // events
 export const EVENTS = '/api/events';
