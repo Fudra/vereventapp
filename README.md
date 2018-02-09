@@ -24,6 +24,7 @@
 ## Benutzung
 
 - Starten des Queue Servers: `php artisen queue:work`
+- Den Taks Scheduler ausführen: `php artisan schedule:run`, alternativ als [CronJob](https://laravel.com/docs/5.6/scheduling#introduction)
 
 #### Development
 

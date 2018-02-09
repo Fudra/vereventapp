@@ -17,11 +17,18 @@
 
 Route::get('auth/activate', 'Auth\\ActivationController@activate')->name('auth.active');
 
-// dynamic routes
-Route::get('{path}', function () {
-    return view('index');
-})->where('path', '(.*)');
+
+Route::get('debug/schedule', function() {
+	return \Illuminate\Support\Facades\Artisan::call('schedule:run');
+});
+
 
 Route::get('password/reset/{token}', function () {
     return view('index');
 })->name('password.reset');
+
+// dynamic routes
+Route::get('{path}', function () {
+	return view('index');
+})->where('path', '(.*)');
+
