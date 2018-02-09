@@ -48,6 +48,9 @@ Route::group(['middleware' => 'auth:api', 'prefix' => '/account'], function () {
 	    Route::patch('/{event}', 'Account\\EventController@update')->name('account.event.update');
 	    Route::delete('/{event}', 'Account\\EventController@destroy')->name('account.event.destroy');
 
+	    // User invite route
+	    Route::get('/{event}/invite', 'Account\\InviteController@index')->name('account.event.index');
+	    Route::post('/{event}/invite', 'Account\\InviteController@invite')->name('account.event.invite');
 	    /**
 	     * Account Ticket Routes
 	     */
@@ -57,8 +60,6 @@ Route::group(['middleware' => 'auth:api', 'prefix' => '/account'], function () {
 		    Route::delete('/{ticket}', 'Account\\TicketController@destroy')->name('account.event.ticket.destroy');
 	    });
     });
-
-
 
 	/**
 	 * Account Settings
@@ -88,6 +89,6 @@ Route::group(['prefix' => '/events'], function () {
 	Route::get('/{event}', 'Events\\EventController@show')->name('event.show');
 	Route::get('/{event}/tickets', 'Events\\TicketController@show')->name('event.ticket.show');
 	Route::get('/{event}/ticket/{ticket}/', 'Account\\TicketController@edit')->name('event.ticket.get');
-
 	// Ticket Checkout
+	Route::post('/{event}/checkout', 'Events\\CheckoutController@checkout')->name('event.checkout');
 });

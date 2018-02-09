@@ -1,32 +1,29 @@
-# Laravel-Vue SPA Starter
+# Verevent
 
-[![Build Status](https://img.shields.io/travis/cretueusebiu/laravel-vue-spa/master.svg?style=flat-square)](https://travis-ci.org/cretueusebiu/laravel-vue-spa)
+## Voraussetzung
 
-> A Laravel-Vue SPA starter project template.
-
-## Features
-
-- Laravel 5.5 
-- Vue + VueRouter + Vuex + VueI18n
-- Pages with custom layouts 
-- Login, register and password reset
-- Authentication with [JWT](https://github.com/tymondesigns/jwt-auth)
-- Socialite integration
-- Bootstrap 4 + Font Awesome 5
-
+- PHP Dempedency Manager [composer](https://getcomposer.org/)
+- Einen Webserver 
+	- Für Mac: [Laravel Valet](https://laravel.com/docs/5.5/valet)
+	- Für Windows: [XAMPP](https://www.apachefriends.org/de/index.html)
+- Datenbank z.B. MySQL
+- Redis
+- Account bei [Mailtrap](https://mailtrap.io) zum E-Mail testen
+  
 ## Installation
 
-- `git clone https://github.com/cretueusebiu/laravel-vue-spa.git`
-- `cd laravel-vue-spa`
 - `cp .env.example .env`
-- `composer install`
-- `php artisan key:generate`
-- `php artisan jwt:secret`
-- Edit `.env` and set your database connection details
-- `php artisan migrate`
-- `npm install` / `yarn`
+- Abhängigkeiten Installieren: `composer install`
+- Anwendungs Key generieren: `php artisan key:generate`
+- JWT- Geheimnis gegerieren: `php artisan jwt:secret`
+- `.env` Bearbeiten und eigene Datenbank verbindung hinzufügen
+- Datenbank Migration `php artisan migrate`
+- Optional: `npm install` / `yarn`
 
-## Usage
+
+## Benutzung
+
+- Starten des Queue Servers: `php artisen queue:work`
 
 #### Development
 
@@ -43,8 +40,3 @@ npm run hot
 ```bash
 npm run production
 ```
-
-
-## Changelog
-
-Please see [CHANGELOG](CHANGELOG.md) for more information what has changed recently.

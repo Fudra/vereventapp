@@ -19,6 +19,9 @@ class EventServiceProvider extends ServiceProvider
 	    'Illuminate\Auth\Events\PasswordReset' => [
 	    	'App\Listeners\Auth\SendPasswordChangeEmail',
 	    ],
+	    'App\Events\Event\UserSendInvitationEmail' => [
+	    	'App\Listeners\Event\SendInvitationEmail'
+	    ]
     ];
 
     /**
@@ -29,7 +32,5 @@ class EventServiceProvider extends ServiceProvider
     public function boot()
     {
         parent::boot();
-
-        //
     }
 }
