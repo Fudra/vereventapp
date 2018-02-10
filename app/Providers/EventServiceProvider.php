@@ -21,7 +21,10 @@ class EventServiceProvider extends ServiceProvider
 	    ],
 	    'App\Events\Event\UserSendInvitationEmail' => [
 	    	'App\Listeners\Event\SendInvitationEmail'
-	    ]
+	    ],
+	    'App\Events\Checkout\SaleCreated' => [
+	        'App\Listeners\Checkout\SendEmailToAttendee'
+	    ],
     ];
 
     /**

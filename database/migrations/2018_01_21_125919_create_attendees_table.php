@@ -18,8 +18,13 @@ class CreateAttendeesTable extends Migration
 	        $table->string('identifier')->unique();
 	        $table->string('name');
 	        $table->string('email');
-	        $table->integer('sale_id')->unsigned()->index()->nullable();
+	        //$table->integer('sale_id')->unsigned()->index()->nullable();
             $table->timestamps();
+
+//	        $table->foreign('sale_id')
+//	              ->references('id')
+//	              ->on('sales')
+//	              ->onDelete('cascade');
         });
     }
 

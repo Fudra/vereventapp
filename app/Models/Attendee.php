@@ -9,11 +9,21 @@ class Attendee extends Model
 	//use SoftDeletes;
 
 	protected $fillable = [
-		'price',
-		'commission',
+		'name',
+		'email',
 	];
 
 	/**
+	 * The table associated with the model.
+	 *
+	 * @var string
+	 */
+//	protected $table = 'attendees';
+
+
+	/**
+	 * Get the route key for the model.
+	 *
 	 * @return string
 	 */
 	public function getRouteKeyName() {
@@ -22,12 +32,20 @@ class Attendee extends Model
 
 	/**
 	 * Generate unique id for this entry
+	 * The "booting" method of the model.
+	 *
+	 * @return void
 	 */
 	protected static function boot() {
 		parent::boot();
 
-		static::creating( function ( $user ) {
-			$user->identifier = uniqid( true );
+		static::creating( function ( $attendee ) {
+			$attendee->identifier = uniqid( true );
 		} );
 	}
+
+	public function sales() {
+		return $this->hasMany(Sale::class);
+	}
+
 }

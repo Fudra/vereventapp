@@ -29,7 +29,8 @@ class Kernel extends ConsoleKernel
 //         $schedule->command('inspire')
 //                  ->everyMinute();
 
-	    $schedule->job(new RemoveAllEventInvitations(Event::all()->first()))->everyMinute();
+	    // todo
+	    //$schedule->job(new RemoveAllEventInvitations(Event::all()->first()))->everyMinute();
     }
 
     /**

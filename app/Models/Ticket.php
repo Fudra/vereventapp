@@ -2,12 +2,14 @@
 
 namespace App\Models;
 
+use App\Traits\HasIdentifier;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Ticket extends Model
 {
 	use SoftDeletes;
+	use HasIdentifier;
 
 	protected $fillable = [
 		'name',

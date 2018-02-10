@@ -67,7 +67,7 @@ class Event extends Model {
 	 * @return Builder $builder
 	 */
 	public function scopeFindByIdentifier( Builder $builder, $identifier ) {
-		return $builder->where('identifier', $identifier);
+		return $builder->where( 'identifier', $identifier );
 	}
 
 	/**
@@ -81,14 +81,21 @@ class Event extends Model {
 	 * @return \Illuminate\Database\Eloquent\Relations\HasMany
 	 */
 	public function tickets() {
-		return $this->hasMany(Ticket::class);
+		return $this->hasMany( Ticket::class );
 	}
 
 	/**
 	 * @return \Illuminate\Database\Eloquent\Relations\HasMany
 	 */
 	public function invitees() {
-		return $this->hasMany(Invitee::class);
+		return $this->hasMany( Invitee::class );
+	}
+
+	/**
+	 * @return \Illuminate\Database\Eloquent\Relations\HasMany
+	 */
+	public function sales() {
+		return $this->hasMany(Sale::class);
 	}
 
 	/**
