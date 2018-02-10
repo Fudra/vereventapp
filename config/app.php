@@ -167,8 +167,8 @@ return [
         /*
          * Package Service Providers...
          */
-
         Spatie\Fractal\FractalServiceProvider::class,
+	    Barryvdh\Debugbar\ServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -231,8 +231,8 @@ return [
 	    /**
 	     * Custom Facades
 	     */
-	    'Fractal' => Spatie\Fractal\FractalFacade::class,
-
+        'Debugbar' => Barryvdh\Debugbar\Facade::class,
+        'Fractal' => Spatie\Fractal\FractalFacade::class,
     ],
 
 ];
