@@ -19,7 +19,7 @@
 			<div class="container">
 				<div class="columns" >
 					<div class="column">
-						<h2 class="title is-2 has-text-centered">Über die Veranstaltung</h2>
+						<h2 class="title is-2">Über die Veranstaltung</h2>
 						<p>
 							{{currentEvent.description}}
 						</p>
@@ -52,7 +52,8 @@
 		<!--</section>-->
 
 		<tickets></tickets>
-
+		<hr>
+		<organizer></organizer>
 
 	</div>
 </template>
@@ -60,6 +61,7 @@
 <script>
 	import Navbar from '~/components/layout/Navbar';
 	import Tickets from '~/components/ticket/Tickets';
+	import Organizer from '~/components/organizer/Organizer';
 
 	import {
 		mapActions,
@@ -77,6 +79,7 @@
 		components: {
 			Navbar,
 			Tickets,
+			Organizer,
 		},
 		methods: {
 			...mapActions(

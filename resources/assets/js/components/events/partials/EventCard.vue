@@ -23,14 +23,8 @@
 
 			<div class="content">
 				{{event.description_short}}
-				<!--<a href="#">#css</a> <a href="#">#responsive</a>-->
 				<br>
 				<br>
-				<!--<div class="tags">-->
-					<!--<span class="tag">One</span>-->
-					<!--<span class="tag">Two</span>-->
-					<!--<span class="tag">Three</span>-->
-				<!--</div>-->
 				<!--<p class="subtitle is-6"><a href="#">{{event.user.data.name}}</a></p>-->
 				<nav class="level" v-if="event.data">
 					<div class="level-item"></div>
@@ -44,10 +38,10 @@
 					</div>
 					<div class="level-item"></div>
 				</nav>
-				<hr>
-				<div class="has-text-right">
-					<time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
-				</div>
+				<!--<hr>-->
+				<!--<div class="has-text-right">-->
+					<!--<time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>-->
+				<!--</div>-->
 			</div>
 		</div>
 

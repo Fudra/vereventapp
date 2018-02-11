@@ -14,6 +14,11 @@ export default [
 		name: 'event-detail',
 		component: require('~/pages/event/event-detail'),
 	},
+	{
+		path: '/event/:event/checkout',
+		name: 'event.checkout',
+		component: require('~/pages/event/checkout'),
+	},
 
 	// User
 	{

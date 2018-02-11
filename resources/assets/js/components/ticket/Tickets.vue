@@ -1,7 +1,7 @@
 <template>
 	<section class="section">
 		<div class="container">
-			<h2 class="title is-2 has-text-centered">Tickets</h2>
+			<h2 class="title is-2">Tickets</h2>
 
 			<div class="columns" v-for="tickets in getChunkedTickets()">
 				<div class="column is-one-fifth"
@@ -11,6 +11,16 @@
 					<ticket-card :ticket="ticket"></ticket-card>
 				</div>
 			</div>
+
+			<div class="columns">
+				<div class="column is-four-fifths">
+					<router-link :to="{name: 'event.checkout' }" class="button is-pulled-right is-info">
+						Go To Checkout
+					</router-link>
+				</div>
+			</div>
+
+
 		</div>
 	</section>
 </template>
@@ -35,7 +45,7 @@
 		},
 		methods: {
 			getChunkedTickets () {
-				return chunk(this.currentEvent.tickets.data, this.chunkSize);
+				return chunk(Object.keys(this.currentEvent).length === 0 ? [] : this.currentEvent.tickets.data, this.chunkSize);
 			},
 		},
 		computed: {
@@ -47,6 +57,6 @@
 		},
 		components: {
 			TicketCard,
-		}
+		},
 	};
 </script>

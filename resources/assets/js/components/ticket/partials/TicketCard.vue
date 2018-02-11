@@ -13,16 +13,16 @@
 				<p class="title" v-else><span class="tag is-success">Frei</span></p>
 				<p class="heading">Verfügbar</p>
 				<p class="title">{{ticket.quantity}}</p>
-				<br>
-				<time :datetime="ticket.available_from">{{ticket.available_from}}</time>
-				-
-				<time :datetime="ticket.available_to">{{ticket.available_to}}</time>
+				<!--<br>-->
+				<!--<time :datetime="ticket.available_from">{{ticket.available_from}}</time>-->
+				<!-- - -->
+				<!--<time :datetime="ticket.available_to">{{ticket.available_to}}</time>-->
 			</div>
 		</div>
-		<footer class="card-footer">
-			<a href="#" class="card-footer-item">Kaufen</a>
-			<a href="#" class="card-footer-item">Interessiert</a>
-		</footer>
+		<!--<footer class="card-footer">-->
+			<!--<a href="#" class="card-footer-item">Kaufen</a>-->
+			<!--<a href="#" class="card-footer-item">Interessiert</a>-->
+		<!--</footer>-->
 	</div>
 </template>
 
