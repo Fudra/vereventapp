@@ -19,13 +19,18 @@
 				</router-link>
 				<a class="level-item">
 					<span class="icon"><fa icon="users" fixed-width/></span>
-					<span>0</span>
+					<span>{{event.meta.attendee}}</span>
 				</a>
-				<a class="level-item">
-					<span class="icon"><fa icon="calendar-alt" fixed-width/></span>
-					<span><time datetime="2016-1-1">1 Jan 2016</time> - <time
-							datetime="2016-1-1">1 Jan 2016</time></span>
-				</a>
+				<!--<a class="level-item">-->
+					<!--<span class="icon"><fa icon="calendar-alt" fixed-width/></span>-->
+					<!--<span><time datetime="2016-1-1">1 Jan 2016</time> - <time-->
+							<!--datetime="2016-1-1">1 Jan 2016</time></span>-->
+				<!--</a>-->
+				<router-link :to="{name: 'event.invitees.index', params: { event: event.identifier }}" class="level-item">
+					<span class="icon"><fa icon="envelope" fixed-width/></span>
+					<span>{{event.meta.invitees}}</span>
+				</router-link>
+
 				<a class="level-item">
 					<span class="icon">
 						<fa icon="eye-slash" v-if="event.meta.private" fixed-width/>
@@ -37,6 +42,9 @@
 						<fa icon="check-square" v-if="event.meta.live" fixed-width/>
 						<fa icon="stop" v-else fixed-width/>
 					</span>
+				</a>
+				<a href="" class="level-item">
+					<span class="icon"><fa icon="chart-bar" fixed-width/></span>
 				</a>
 			</nav>
 		</div>

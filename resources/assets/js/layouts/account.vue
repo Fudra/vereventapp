@@ -1,7 +1,7 @@
 <template>
-	<div class="app-plain-layout">
+	<div class="app-plain-layout main-bg">
 		<navbar></navbar>
-		<account-stats></account-stats>
+		<!--<account-stats></account-stats>-->
 
 		<section class="section">
 			<div class="container">
@@ -9,7 +9,7 @@
 					<div class="column is-one-quarter">
 						<account-navigation></account-navigation>
 					</div>
-					<div class="column">
+					<div class="column main-colum z-depth-1" >
 						<child/>
 					</div>
 				</div>
@@ -23,10 +23,8 @@
 	import AccountStats from '~/components/account/Stats';
 	import AccountNavigation from '~/components/account/Navigation';
 
-
 	export default {
 		name: 'account-layout',
-
 
 		components: {
 			AccountNavigation,
@@ -35,3 +33,14 @@
 		},
 	};
 </script>
+
+<style>
+	.main-bg {
+		background: #f5f5f5;
+		min-height: 100vh;
+	}
+
+	.main-colum {
+		background: white;
+	}
+</style>

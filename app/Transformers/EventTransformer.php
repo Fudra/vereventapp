@@ -18,13 +18,16 @@ class EventTransformer extends TransformerAbstract {
 			'title'             => $event->title,
 			'description'       => $event->description,
 			'description_short' => $event->description_short,
-			'meta' => [
-				'live'    => boolval( $event->live ),
-				'private' => boolval( $event->private ),
+			'meta'              => [
+				'live'     => boolval( $event->live ),
+				'private'  => boolval( $event->private ),
+				'attendee' => $event->attendees()->count(),
+				'invitees' => $event->invitees()->count(),
+				'sales'    => $event->sales()->count(),
 			],
-			'_links' => [
+			'_links'            => [
 				'self' => [
-					'href' => route('event.show', ['event' => $event->identifier]),
+					'href' => route( 'event.show', [ 'event' => $event->identifier ] ),
 				]
 			],
 		];
@@ -35,6 +38,6 @@ class EventTransformer extends TransformerAbstract {
 	}
 
 	public function includeTickets( Event $events ) {
-		return $this->collection($events->tickets, new TicketTransformer());
+		return $this->collection( $events->tickets, new TicketTransformer() );
 	}
 }

@@ -68,9 +68,19 @@ export default [
 					path: ':event/tickets/:ticket/edit',
 					name: 'events.tickets.edit',
 					component: require('~/pages/account/tickets/edit')
-				}
+				},
 
-				// teilnehmer
+				// invitees
+				{
+					path: ':event/invitees',
+					name: 'event.invitees.index',
+					component: require('~/pages/account/invitees/index')
+				},
+				{
+					path: ':event/invitees/invite',
+					name: 'event.invitees.invite',
+					component: require('~/pages/account/invitees/invite')
+				},
 
 			]
 		},
