@@ -21,7 +21,7 @@ class StatsController extends Controller
 		$this->authorize( 'touch', $event );
 
 		return fractal()
-			->collection( $event->get())
+			->item( $event)
 			->transformWith( new StatsTransformer() )
 			->toArray();
 	}

@@ -18,17 +18,13 @@
 					<span class="icon"><fa icon="ticket-alt" fixed-width/></span>
 					<span>{{event.tickets.data.length}}</span>
 				</router-link>
+
 				<router-link :to="{name: 'event.attendee.index', params: { event: event.identifier }}"
 							 class="level-item">
 					<span class="icon"><fa icon="users" fixed-width/></span>
 					<span>{{event.meta.attendee}}</span>
 				</router-link>
 
-				<!--<a class="level-item">-->
-				<!--<span class="icon"><fa icon="calendar-alt" fixed-width/></span>-->
-				<!--<span><time datetime="2016-1-1">1 Jan 2016</time> - <time-->
-				<!--datetime="2016-1-1">1 Jan 2016</time></span>-->
-				<!--</a>-->
 				<router-link :to="{name: 'event.invitees.index', params: { event: event.identifier }}"
 							 class="level-item">
 					<span class="icon"><fa icon="envelope" fixed-width/></span>
@@ -41,15 +37,18 @@
 						<fa icon="eye" v-else fixed-width/>
 					</span>
 				</a>
+
 				<a class="level-item">
 					<span class="icon">
 						<fa icon="check-square" v-if="event.meta.live" fixed-width/>
 						<fa icon="stop" v-else fixed-width/>
 					</span>
 				</a>
-				<a href="" class="level-item">
+
+				<router-link :to="{name: 'event.stats.index', params: { event: event.identifier }}"
+							 class="level-item">
 					<span class="icon"><fa icon="chart-bar" fixed-width/></span>
-				</a>
+				</router-link>
 			</nav>
 		</div>
 	</article>

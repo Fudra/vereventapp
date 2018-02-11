@@ -89,6 +89,13 @@ export default [
 					component: require('~/pages/account/attendee/index')
 				},
 
+				// stats
+				{
+					path: ':event/stats',
+					name: 'event.stats.index',
+					component: require('~/pages/account/stats/index')
+				},
+
 			]
 		},
 		{
