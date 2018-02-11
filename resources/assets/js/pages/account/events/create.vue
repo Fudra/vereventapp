@@ -1,6 +1,18 @@
 <template>
 	<div>
-		<h1 class="title">{{$t('event.new')}}</h1>
+
+		<div class="columns">
+			<div class="column is-vcentered">
+				<h1 class="title">{{$t('event.new')}}</h1>
+			</div>
+			<div class="column is-narrow">
+				<router-link :to="{name: 'events.index' }" class="button is-primary">
+					<span class="icon"><fa icon="arrow-left" fixed-width/></span>
+					<span>Back to Overview</span>
+				</router-link>
+			</div>
+		</div>
+
 		<form @submit.prevent="create" @keydown="form.onKeydown($event)" class="form">
 			<alert-success :form="form" :message="$t('event.created')"></alert-success>
 

@@ -47,6 +47,17 @@
 				</b-table-column>
 			</template>
 
+			<template slot="empty">
+				<section class="section">
+					<div class="content has-text-grey has-text-centered">
+						<p>
+							<span class="icon"><fa icon="frown" fixed-width size="6x"/></span>
+						</p>
+						<p>No Tickets created.</p>
+					</div>
+				</section>
+			</template>
+
 		</b-table>
 	</div>
 </template>
