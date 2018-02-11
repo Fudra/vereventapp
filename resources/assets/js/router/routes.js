@@ -82,6 +82,13 @@ export default [
 					component: require('~/pages/account/invitees/invite')
 				},
 
+				// attendee
+				{
+					path: ':event/attendee',
+					name: 'event.attendee.index',
+					component: require('~/pages/account/attendee/index')
+				},
+
 			]
 		},
 		{

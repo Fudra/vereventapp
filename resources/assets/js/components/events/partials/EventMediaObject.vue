@@ -13,20 +13,24 @@
 				</p>
 			</div>
 			<nav class="level is-mobile">
-				<router-link :to="{name: 'events.tickets.index', params: { event: event.identifier }}" class="level-item">
+				<router-link :to="{name: 'events.tickets.index', params: { event: event.identifier }}"
+							 class="level-item">
 					<span class="icon"><fa icon="ticket-alt" fixed-width/></span>
 					<span>{{event.tickets.data.length}}</span>
 				</router-link>
-				<a class="level-item">
+				<router-link :to="{name: 'event.attendee.index', params: { event: event.identifier }}"
+							 class="level-item">
 					<span class="icon"><fa icon="users" fixed-width/></span>
 					<span>{{event.meta.attendee}}</span>
-				</a>
+				</router-link>
+
 				<!--<a class="level-item">-->
-					<!--<span class="icon"><fa icon="calendar-alt" fixed-width/></span>-->
-					<!--<span><time datetime="2016-1-1">1 Jan 2016</time> - <time-->
-							<!--datetime="2016-1-1">1 Jan 2016</time></span>-->
+				<!--<span class="icon"><fa icon="calendar-alt" fixed-width/></span>-->
+				<!--<span><time datetime="2016-1-1">1 Jan 2016</time> - <time-->
+				<!--datetime="2016-1-1">1 Jan 2016</time></span>-->
 				<!--</a>-->
-				<router-link :to="{name: 'event.invitees.index', params: { event: event.identifier }}" class="level-item">
+				<router-link :to="{name: 'event.invitees.index', params: { event: event.identifier }}"
+							 class="level-item">
 					<span class="icon"><fa icon="envelope" fixed-width/></span>
 					<span>{{event.meta.invitees}}</span>
 				</router-link>
