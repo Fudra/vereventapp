@@ -37,7 +37,7 @@ class UserController extends Controller
 		$usersEmail = $user->email;
 
 		foreach ($user->events()->get() as $event) {
-			$event->attendee()->forceDelete();
+			$event->attendees()->forceDelete();
 			$event->sales()->forceDelete();
 			$event->tickets()->forceDelete();
 		}

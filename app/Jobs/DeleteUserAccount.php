@@ -40,7 +40,7 @@ class DeleteUserAccount implements ShouldQueue
 	    $usersEmail = $this->user->email;
 
 	    foreach ($this->user->events()->get() as $event) {
-		    $event->attendee()->forceDelete();
+		    $event->attendees()->forceDelete();
 		    $event->sales()->forceDelete();
 		    $event->tickets()->forceDelete();
 	    }

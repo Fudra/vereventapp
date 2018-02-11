@@ -101,7 +101,7 @@ class Event extends Model {
 	/**
 	 * @return \Illuminate\Database\Eloquent\Relations\HasMany
 	 */
-	public function attendee() {
+	public function attendees() {
 		return $this->hasMany(Attendee::class);
 	}
 
