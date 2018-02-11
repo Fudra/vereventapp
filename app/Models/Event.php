@@ -99,7 +99,14 @@ class Event extends Model {
 	}
 
 	/**
-	 *
+	 * @return \Illuminate\Database\Eloquent\Relations\HasMany
+	 */
+	public function attendee() {
+		return $this->hasMany(Attendee::class);
+	}
+
+	/**
+	 * The boot Method of the Model
 	 */
 	protected static function boot() {
 		parent::boot();

@@ -67,6 +67,7 @@ Route::group(['middleware' => 'auth:api', 'prefix' => '/account'], function () {
     Route::group(['prefix' => '/settings'], function () {
 	    Route::patch('/profile', 'Settings\ProfileController@update');
 	    Route::patch('/password', 'Settings\PasswordController@update');
+	    Route::delete('/delete', 'Account\UserController@destroy');
     });
 });
 

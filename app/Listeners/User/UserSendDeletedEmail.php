@@ -1,14 +1,14 @@
 <?php
 
-namespace App\Listeners\Checkout;
+namespace App\Listeners\User;
 
-use App\Events\Checkout\SaleCreated;
-use App\Mail\CheckoutEmail;
+use App\Events\User\UserSendDeletingEmail;
+use App\Mail\UserDeletedConfimationEmail;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Support\Facades\Mail;
 
-class SendEmailToAttendee
+class UserSendDeletedEmail
 {
     /**
      * Create the event listener.
@@ -23,13 +23,13 @@ class SendEmailToAttendee
 	/**
 	 * Handle the event.
 	 *
-	 * @param SaleCreated $event
+	 * @param UserSendDeletingEmail $event
 	 *
 	 * @return void
 	 */
-    public function handle(SaleCreated $event)
+    public function handle(UserSendDeletingEmail $event)
     {
-	    Mail::to($event->attendee->email)
-	        ->send(new CheckoutEmail($event->attendee));
+	    Mail::to($event->email)
+	        ->send(new UserDeletedConfimationEmail());
     }
 }

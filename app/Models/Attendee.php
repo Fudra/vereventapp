@@ -14,20 +14,26 @@ class Attendee extends Model
 	];
 
 	/**
-	 * The table associated with the model.
-	 *
-	 * @var string
-	 */
-//	protected $table = 'attendees';
-
-
-	/**
 	 * Get the route key for the model.
 	 *
 	 * @return string
 	 */
 	public function getRouteKeyName() {
 		return 'identifier';
+	}
+
+	/**
+	 * @return \Illuminate\Database\Eloquent\Relations\HasMany
+	 */
+	public function sales() {
+		return $this->hasMany(Sale::class);
+	}
+
+	/**
+	 * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+	 */
+	public function event() {
+		return $this->belongsTo(Event::class);
 	}
 
 	/**
@@ -44,8 +50,5 @@ class Attendee extends Model
 		} );
 	}
 
-	public function sales() {
-		return $this->hasMany(Sale::class);
-	}
 
 }

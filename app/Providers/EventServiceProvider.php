@@ -20,11 +20,14 @@ class EventServiceProvider extends ServiceProvider
 	    	'App\Listeners\Auth\SendPasswordChangeEmail',
 	    ],
 	    'App\Events\Event\UserSendInvitationEmail' => [
-	    	'App\Listeners\Event\SendInvitationEmail'
+	    	'App\Listeners\Event\SendInvitationEmail',
 	    ],
 	    'App\Events\Checkout\SaleCreated' => [
-	        'App\Listeners\Checkout\SendEmailToAttendee'
+	        'App\Listeners\Checkout\SendEmailToAttendee',
 	    ],
+	    'App\Events\User\UserSendDeletingEmail' => [
+	    	'App\Listeners\User\UserSendDeletedEmail',
+	    ]
     ];
 
     /**

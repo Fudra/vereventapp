@@ -62,6 +62,8 @@ class CheckoutController extends Controller {
 			] );
 
 
+			$attendee->event_id = $event->id;
+			$attendee->save();
 			$sale->ticket()->associate($t);
 			$sale->attendee()->associate( $attendee );
 			$sale->event()->associate( $event );
