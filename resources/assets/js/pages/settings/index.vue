@@ -39,6 +39,11 @@
 						name: this.$t('password'),
 						route: 'settings.password',
 					},
+					{
+						icon: 'trash',
+						name: this.$t('danger'),
+						route: 'settings.danger',
+					},
 				],
 			};
 		},

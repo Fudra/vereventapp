@@ -117,6 +117,11 @@ export default [
 					name: 'settings.password',
 					component: require('~/pages/settings/password'),
 				},
+				{
+					path: 'danger',
+					name: 'settings.danger',
+					component: require('~/pages/settings/danger'),
+				},
 			],
 		},
 
