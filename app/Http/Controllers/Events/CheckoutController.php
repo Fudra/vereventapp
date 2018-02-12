@@ -22,7 +22,7 @@ class CheckoutController extends Controller {
 	 */
 	public function checkout( Event $event, CheckoutRequest $request ) {
 
-		$this->manageSale($event,$request->only( [ 'name', 'email', 'tickets' ] ));
+		$this->manageSale( $event, $request->only( [ 'name', 'email', 'tickets' ] ) );
 
 		return response()->json( [ 'err' => 'err' ] );
 	}
@@ -31,7 +31,7 @@ class CheckoutController extends Controller {
 	 * @param $event
 	 * @param $checkout
 	 */
-	protected function manageSale($event, $checkout) {
+	protected function manageSale( $event, $checkout ) {
 
 		//	dispatch(new CreateTicketSale($event, $request->only(['name', 'email', 'tickets'])));
 
@@ -51,6 +51,9 @@ class CheckoutController extends Controller {
 //			if ( $t->quantity - $ticket['amount'] < 0 ) {
 			// throw new TicketQuantityIsNotValidException();
 //			}
+			if ( $ticket['amount'] == 0 ) {
+				continue;
+			}
 
 			$t->decrement( 'quantity', $ticket['amount'] );
 
@@ -64,12 +67,12 @@ class CheckoutController extends Controller {
 
 			$attendee->event_id = $event->id;
 			$attendee->save();
-			$sale->ticket()->associate($t);
+			$sale->ticket()->associate( $t );
 			$sale->attendee()->associate( $attendee );
 			$sale->event()->associate( $event );
 			$sale->save();
 		}
 
-		event(new SaleCreated($attendee));
+		event( new SaleCreated( $attendee ) );
 	}
 }
