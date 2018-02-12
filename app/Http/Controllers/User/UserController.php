@@ -19,7 +19,7 @@ class UserController extends Controller
 	public function index() {
 
 		return fractal()
-			->collection( User::active()->get() )
+			->item( auth()->user() )
 			->transformWith( new UserTransformer() )
 			->toArray();
 	}

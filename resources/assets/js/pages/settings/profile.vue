@@ -69,7 +69,7 @@
 		created () {
 			this.form.keys()
 				.forEach(key => {
-					this.form[key] = this.user[0][key];
+					this.form[key] = this.user[key];
 				});
 		},
 
