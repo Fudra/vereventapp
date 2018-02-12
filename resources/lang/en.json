@@ -1,66 +1,93 @@
 {
-  "ok": "Ok",
-  "cancel": "Cancel",
-  "error_alert_title": "Oops...",
-  "error_alert_text": "Something went wrong! Please try again.",
-  "token_expired_alert_title": "Session Expired!",
-  "token_expired_alert_text": "Please log in again to continue.",
-  "login": "Log In",
-  "register": "Register",
-  "page_not_found": "Page Not Found",
-  "go_home": "Go Home",
-  "logout": "Logout",
-  "email": "Email",
-  "remember_me": "Remember Me",
-  "password": "Password",
-  "forgot_password": "Forgot Your Password?",
-  "confirm_password": "Confirm Password",
-  "name": "Name",
-  "toggle_navigation": "Toggle navigation",
-  "home": "Home",
-  "you_are_logged_in": "You are logged in!",
-  "reset_password": "Reset Password",
-  "send_password_reset_link": "Send Password Reset Link",
-  "settings": "Settings",
-  "profile": "Profile",
-  "your_info": "Your Info",
-  "info_updated": "Your info has been updated!",
-  "update": "Update",
-  "your_password": "Your Password",
-  "password_updated": "Your password has been updated!",
-  "new_password": "New Password",
-  "login_with": "Login with",
-  "register_with": "Register with",
-  "event": {
-    "created" : "Your event has been created!",
-    "title" : "Event Title",
-    "new" : "Create new event",
-    "description_short": "Event short description",
-    "description": "Event long description",
-    "live": "Is this event finished?",
-    "private": "Is this Event private?",
-    "overview": "Event overview",
-    "edit": "Edit your event",
-    "updated": "Your Event has been updated!"
-  },
-  "tickets" : {
-    "heading": "Tickets",
-    "create": "Create a new Ticket to your Event",
-    "edit": "Edit your ticket"
-  },
-  "general" : {
-    "save": "Save",
-    "update": "Update"
-  },
-  "local": {
-    "date" : {
-      "hourTip": "Hour",
-      "minuteTip": "Minutes",
-      "secondTip": "Seconds",
-      "yearSuffix": "",
-      "monthsHead": "Jan._Feb._Mar._Apr._May_Jun._Jul._Aug._Sep._Oct._Nov._Dec.",
-      "months": "Jan._Feb._Mar._Apr._May_Jun._Jul._Aug._Sep._Oct._Nov._Dec.",
-      "weeks": "Mo_Tu_We_Th_Fr_Sa_Su"
-    }
-  }
+	"ok": "Ok",
+	"cancel": "Cancel",
+	"error_alert_title": "Oops...",
+	"error_alert_text": "Something went wrong! Please try again.",
+	"token_expired_alert_title": "Session Expired!",
+	"token_expired_alert_text": "Please log in again to continue.",
+	"login": "Log In",
+	"register": "Register",
+	"page_not_found": "Page Not Found",
+	"go_home": "Go Home",
+	"logout": "Logout",
+	"email": "Email",
+	"remember_me": "Remember Me",
+	"password": "Password",
+	"forgot_password": "Forgot Your Password?",
+	"confirm_password": "Confirm Password",
+	"name": "Name",
+	"toggle_navigation": "Toggle navigation",
+	"home": "Home",
+	"you_are_logged_in": "You are logged in!",
+	"reset_password": "Reset Password",
+	"send_password_reset_link": "Send Password Reset Link",
+	"settings": "Settings",
+	"profile": "Profile",
+	"your_info": "Your Info",
+	"info_updated": "Your info has been updated!",
+	"update": "Update",
+	"your_password": "Your Password",
+	"password_updated": "Your password has been updated!",
+	"new_password": "New Password",
+	"login_with": "Login with",
+	"register_with": "Register with",
+	"danger": "Danger!",
+	"event": {
+		"created": "Your event has been created!",
+		"title": "Event Title",
+		"new": "Create new event",
+		"description_short": "Event short description",
+		"description": "Event long description",
+		"live": "Is this event finished?",
+		"private": "Is this Event private?",
+		"overview": "Event overview",
+		"edit": "Edit your event",
+		"updated": "Your Event has been updated!",
+		"public": "Is this Event public?",
+		"invite": "Invite"
+	},
+	"ticket": {
+		"create": "Create a new Ticket to your Event",
+		"edit": "Edit your ticket",
+		"name": "A name of this Ticket",
+		"quantity": "How many Tickets are available?",
+		"price": "How many does this Ticket cost?",
+		"date": "When can the ticket be bought?"
+	},
+	"tickets": {
+		"heading": "Tickets",
+		"created": "Created Tickets"
+	},
+	"attendee": {
+		"overview": "Who is bough a ticket"
+	},
+	"account": {
+		"delete": "Delete your Account!"
+	},
+	"invitee": {
+		"overview": "The names of people you invited",
+		"invite": "Invite a new pearson",
+		"name": "Name",
+		"email": "Email"
+	},
+	"invitation": {
+		"send": "Invitations has been send"
+	},
+	"general": {
+		"save": "Save",
+		"update": "Update",
+		"invite": "Invite"
+	},
+
+	"local": {
+		"date": {
+			"hourTip": "Hour",
+			"minuteTip": "Minutes",
+			"secondTip": "Seconds",
+			"yearSuffix": "",
+			"monthsHead": "Jan._Feb._Mar._Apr._May_Jun._Jul._Aug._Sep._Oct._Nov._Dec.",
+			"months": "Jan._Feb._Mar._Apr._May_Jun._Jul._Aug._Sep._Oct._Nov._Dec.",
+			"weeks": "Mo_Tu_We_Th_Fr_Sa_Su"
+		}
+	}
 }

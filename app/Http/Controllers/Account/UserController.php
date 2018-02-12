@@ -16,10 +16,8 @@ class UserController extends Controller
 	 */
 	public function index() {
 
-		$user = auth()->user();
-
 		return fractal()
-			->item( $user )
+			->item( auth()->user() )
 			->transformWith( new UserTransformer() )
 			->toArray();
 	}

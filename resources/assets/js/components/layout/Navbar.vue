@@ -20,13 +20,13 @@
 							{{ user.name }}
 						</a>
 						<div class="navbar-dropdown is-boxed">
-							<router-link :to="{ name: 'settings.profile' }" class="navbar-item">
+							<router-link :to="{ name: 'settings.profile' }" class="navbar-item" style="color:black">
 								<fa icon="cog" fixed-width/>
 								{{ $t('settings') }}
 							</router-link>
 
 							<hr class="navbar-divider">
-							<a @click.prevent="logout" class="navbar-item" href="#">
+							<a @click.prevent="logout" class="navbar-item" href="#"  style="color:black">
 								<fa icon="sign-out-alt" fixed-width/>
 								{{ $t('logout') }}
 							</a>

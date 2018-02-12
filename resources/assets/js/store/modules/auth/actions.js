@@ -8,7 +8,7 @@ export const saveToken = ({ commit  }, payload) => commit(types.SAVE_TOKEN, payl
 
 export const fetchUser = async ({ commit }) => {
 	try {
-		const { data } = await axios.get(api.USER);
+		const { data } = await axios.get(api.MYSELF);
 
 		commit(types.FETCH_USER_SUCCESS, { user: data.data });
 	} catch (e) {

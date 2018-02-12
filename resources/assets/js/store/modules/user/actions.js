@@ -25,4 +25,3 @@ export const fetchUser = async ({ commit, dispatch }, payload) => {
 		commit(types.FETCH_USER_FAILURE);
 	}
 };
-

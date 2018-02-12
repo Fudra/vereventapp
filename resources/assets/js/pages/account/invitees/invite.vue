@@ -2,7 +2,7 @@
 	<div>
 		<div class="columns">
 			<div class="column is-vcentered">
-				<h1 class="title">{{$t('invitees.invite')}}</h1>
+				<h1 class="title">{{$t('invitee.invite')}}</h1>
 			</div>
 			<div class="column is-narrow">
 				<router-link :to="{name: 'event.invitees.index', params: { event: identifier}}"
