@@ -9,7 +9,11 @@
 					<img :src="userData.photo_url" alt="">
 				</div>
 				<div class="column">
-					<p class="title is-2">{{userData.name}}</p>
+					<p class="title is-2">
+						<router-link :to="{name: 'users.detail', params:{ user:  userData.identifier}}">
+							{{userData.name}}
+						</router-link>
+					</p>
 					<p class="subtitle is-4">{{userData.email}}</p>
 				</div>
 			</div>
@@ -28,21 +32,19 @@
 	export default {
 		name: 'organizer',
 
-		data() {
-			return {}
+		data () {
+			return {};
 		},
-		methods: {
-
-		},
+		methods: {},
 		computed: {
 			...mapGetters(
 				{
 					currentEvent: 'events/currentEvent',
 				},
 			),
-			userData() {
+			userData () {
 				return Object.keys(this.currentEvent).length === 0 ? {} : this.currentEvent.user.data;
-			}
+			},
 		},
 	};
 </script>

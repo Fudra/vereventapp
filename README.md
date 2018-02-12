@@ -18,26 +18,23 @@
 - JWT- Geheimnis gegerieren: `php artisan jwt:secret`
 - `.env` Bearbeiten und eigene Datenbank verbindung hinzufügen
 - Datenbank Migration `php artisan migrate`
-- Optional: `npm install` / `yarn`
+- Datenbank mit testdaten befüllen: `php artisan db:seed`
 
+- Fontend pakete installieren  : `npm install` / `yarn`
+- Frontend bauen: `npm run build`
 
 ## Benutzung
 
 - Starten des Queue Servers: `php artisen queue:work`
-- Den Taks Scheduler ausführen: `php artisan schedule:run`, alternativ als [CronJob](https://laravel.com/docs/5.6/scheduling#introduction)
+- Den Task Scheduler ausführen: `php artisan schedule:run`, alternativ [CronJob](https://laravel.com/docs/5.6/scheduling#introduction)
 
 #### Development
 
 ```bash
 # build and watch
 npm run watch
-
+```
+```bash
 # serve with hot reloading
 npm run hot
-```
-
-#### Production
-
-```bash
-npm run production
 ```

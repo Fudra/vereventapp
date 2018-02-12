@@ -8,7 +8,7 @@ use League\Fractal\TransformerAbstract;
 class UserTransformer extends TransformerAbstract {
 
 	protected $availableIncludes = [
-		'events'
+		'events',
 	];
 
 	public function transform( User $user ) {

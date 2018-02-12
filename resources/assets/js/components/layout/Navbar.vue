@@ -2,7 +2,7 @@
 	<nav class="navbar" role="navigation" aria-label="main navigation">
 		<div class="container">
 			<div class="navbar-brand">
-				<router-link :to="{ name: user ? 'home' : 'welcome' }" class="navbar-item">
+				<router-link :to="{ name: 'welcome' }" class="navbar-item">
 					{{ appName }}
 				</router-link>
 				<button class="button navbar-burger">
@@ -13,11 +13,19 @@
 			</div>
 			<div class="navbar-menu">
 				<div class="navbar-end">
+
+					<!-- Other Routes -->
+					<router-link :to="{ name: 'users.index' }" class="navbar-item" active-class="active">
+						{{ $t('users') }}
+					</router-link>
+
 					<!-- Authenticated -->
 					<div class="navbar-item has-dropdown is-hoverable" v-if="user">
 						<a href="#" class="navbar-link">
-							<img :src="user.photo_url" class="image is-24x24 is-profile">
-							{{ user.name }}
+							<router-link :to="{ name: 'home' }" class="navbar-item">
+								<img :src="user.photo_url" class="image is-24x24 is-profile">
+								{{ user.name }}
+							</router-link>
 						</a>
 						<div class="navbar-dropdown is-boxed">
 							<router-link :to="{ name: 'settings.profile' }" class="navbar-item" style="color:black">

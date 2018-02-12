@@ -31,7 +31,6 @@ class UserTableSeeder extends Seeder {
 
 				$this->currentUser++;
 				var_dump('User seeded: ' . $this->currentUser .'/'.  $this->userMax);
-
 			} );
 	}
 
